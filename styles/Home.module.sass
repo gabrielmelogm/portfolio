@@ -1,7 +1,11 @@
-@import "/styles/colors.sass"
-@import "/styles/fonts.sass"
+@import "/styles/variables/colors.sass"
+@import "/styles/variables/fonts.sass"
   
 .container
-  h1
-    color: $cor-primaria
-    font-family: $font-principal
+    max-width: 1602px
+    width: 90%
+    margin: 0 auto
+
+@media (max-width: 1280px)
+    .container
+        width: 84%
