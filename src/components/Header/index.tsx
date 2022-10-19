@@ -1,3 +1,4 @@
+import { Container } from "../Container"
 import styles from "./styles.module.sass"
 
 export function Header() {
@@ -22,7 +23,7 @@ export function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
+      <Container>
         <div className={styles.header__content}>
           <h1 className={styles.logo}>Gabriel Melo</h1>
           <nav className={styles.nav}>
@@ -42,7 +43,7 @@ export function Header() {
             </ul>
           </nav>
         </div>
-      </div>
+      </Container>
     </header>
   )
 }
