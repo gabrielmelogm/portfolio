@@ -24,8 +24,10 @@
 .media__item
 
   a
-    transition: $color-smooth
+    display: inline-block
+    position: relative
+    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1)
 
     &:hover
+      transform: translateY(-3px)
       color: $cor-primaria
-      animation: slide-top 0.5s ease-out
