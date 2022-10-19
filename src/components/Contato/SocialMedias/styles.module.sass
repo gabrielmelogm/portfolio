@@ -1,0 +1,31 @@
+@import "styles/Home.module.sass"
+  
+.social__medias
+  position: fixed
+  bottom: 0
+  left: 20px
+  display: flex
+  flex-direction: column-reverse
+  align-items: center
+
+.social__bar
+  width: 1px
+  height: 150px
+  background-color: transparentize($cinza, 0.5)
+
+.media__list
+  margin-bottom: 1rem
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+  font-size: 22px
+  color: $cor-secundaria
+
+.media__item
+
+  a
+    transition: $color-smooth
+
+    &:hover
+      color: $cor-primaria
+      animation: slide-top 0.5s ease-out
