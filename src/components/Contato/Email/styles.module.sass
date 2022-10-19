@@ -1,0 +1,25 @@
+@import "styles/Home.module.sass"
+
+.email
+  max-width: 16px
+  position: fixed
+  bottom: 0
+  right: 30px
+  display: flex
+  flex-direction: column-reverse
+  align-items: center
+  gap: 9rem
+
+.email__bar
+  width: 1px
+  height: 150px
+  background-color: transparentize($cinza, 0.5)
+
+.email__link
+  transform: rotate(90deg)
+  font-size: 14px
+  color: $cor-secundaria
+  transition: $color-smooth
+
+  &:hover
+    color: $cor-primaria
