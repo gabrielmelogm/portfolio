@@ -5,14 +5,19 @@ import  Lamppit from "../../assets/logo-lamppit.jpeg"
 import  Bluemarble from "../../assets/logo-bluemarble.jpeg"
 import styles from "./styles.module.sass"
 import Image, { StaticImageData } from "next/image"
-import { Splide, SplideSlide } from "@splidejs/react-splide"
-import '@splidejs/react-splide/css';
+import { Pagination } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 
 interface CompanyProps {
   title: string
   subtitle: string
-  image: StaticImageData
-  size: {
+  time: string
+  image: {
+    src: StaticImageData
     width: number
     height: number
   }
@@ -20,13 +25,15 @@ interface CompanyProps {
 }
 
 export function Experiencia() {
+  const paginationColor: any = {"--swiper-pagination-color": "#8257E5"}
   
   const companies: CompanyProps[] = [
     {
       title: "Maximize",
       subtitle: "Software house focada em comunicação",
-      image: Maximize,
-      size: {
+      time: "jul de 2022 - Atualmente",
+      image: {
+        src: Maximize,
         width: 130,
         height: 70
       },
@@ -35,8 +42,9 @@ export function Experiencia() {
     {
       title: "Lampp-it Solutions",
       subtitle: "Desenvolvedora de sistemas",
-      image: Lamppit,
-      size: {
+      time: "mai de 2022 - jul de 2022",
+      image: {
+        src: Lamppit,
         width:  120,
         height: 120
       },
@@ -45,8 +53,9 @@ export function Experiencia() {
     {
       title: "Bluemarble",
       subtitle: "Software house voltada para logística portuária",
-      image: Bluemarble,
-      size: {
+      time: "jul de 2020 - mai de 2022",
+      image: {
+        src: Bluemarble,
         width:  170,
         height: 170
       },
@@ -59,29 +68,30 @@ export function Experiencia() {
       <Container>
         <Title>Experiência</Title>
         <div className={styles.experiencia__content}>
-          <Splide 
+          <Swiper
+            style={paginationColor}
             className={styles.slide__list}
-            options={{
-              arrows: false
-            }}
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
           >
             {
               companies.map((company, index) => (
-                <SplideSlide key={index} className={styles.slide__item}>
+                <SwiperSlide key={index} className={styles.slide__item}>
                   <div className={styles.experiencia__header}>
                     <h3 className={styles.empresa__title}>{company.title}</h3>
+                    <span className={styles.empresa__tempo}>{company.time}</span>
                     <h4 className={styles.empresa__subtitle}>{company.subtitle}</h4>
                   </div>
 
                   <div className={styles.empresa__profile}>
-                    <Image src={company.image} alt="Logo da maximize" width={company.size.width} height={company.size.height} />
+                    <Image src={company.image.src} alt="Logo da maximize" width={company.image.width} height={company.image.height} />
                   </div>
 
                   <p className={styles.empresa__description}>{company.description}</p>
-                </SplideSlide>
+                </SwiperSlide>
               ))
             }
-          </Splide>
+          </Swiper>
         </div>
       </Container>
     </section>
