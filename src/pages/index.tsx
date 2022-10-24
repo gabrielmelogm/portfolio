@@ -4,6 +4,7 @@ import { Email } from '../components/Contato/Email'
 import { SocialMedias } from '../components/Contato/SocialMedias'
 import { Experiencia } from '../components/Experiencia'
 import { Header } from '../components/Header'
+import { OutrosProjetos } from '../components/OutrosProjetos'
 import { Projetos } from '../components/Projetos'
 import { Sobre } from '../components/Sobre'
 import { Welcome } from '../components/Welcome'
@@ -21,6 +22,7 @@ export default function Home() {
       <Sobre />
       <Experiencia />
       <Projetos />
+      <OutrosProjetos />
     </>
   )
 }
