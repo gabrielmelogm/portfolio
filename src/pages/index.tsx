@@ -4,23 +4,28 @@ import { Email } from '../components/Contato/Email'
 import { SocialMedias } from '../components/Contato/SocialMedias'
 import { Experiencia } from '../components/Experiencia'
 import { Header } from '../components/Header'
+import { OutrosProjetos } from '../components/OutrosProjetos'
 import { Projetos } from '../components/Projetos'
 import { Sobre } from '../components/Sobre'
 import { Welcome } from '../components/Welcome'
+import { RepositoriesProvider } from '../hooks/useRepositories'
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Gabriel Melo | Portfólio</title>
-      </Head>
-      <Header />
-      <SocialMedias />
-      <Email />
-      <Welcome />
-      <Sobre />
-      <Experiencia />
-      <Projetos />
+      <RepositoriesProvider>
+        <Head>
+          <title>Gabriel Melo | Portfólio</title>
+        </Head>
+        <Header />
+        <SocialMedias />
+        <Email />
+        <Welcome />
+        <Sobre />
+        <Experiencia />
+        <Projetos />
+        <OutrosProjetos />
+      </RepositoriesProvider>
     </>
   )
 }
