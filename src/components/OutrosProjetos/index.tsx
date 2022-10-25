@@ -42,7 +42,7 @@ export function OutrosProjetos() {
                         <a className={styles.projeto__repositorio} href={repository.html_url} target="_blank" rel="noreferrer">
                           <BsGithub />
                         </a>
-                        <a className={`${repository.homepage ? styles.projeto__site : styles.site__disabled}`} href={repository.homepage && repository.homepage} target="_blank" rel="noreferrer">
+                        <a className={`${repository.homepage ? styles.projeto__site : styles.site__disabled}`} href={repository.homepage && repository.homepage}>
                           <BsLink45Deg />
                         </a>
                       </div>
