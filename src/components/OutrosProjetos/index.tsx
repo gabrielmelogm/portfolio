@@ -7,6 +7,7 @@ import { HiOutlineFolder } from "react-icons/hi"
 import { BsGithub, BsLink45Deg } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { useRepositories } from "../../hooks/useRepositories";
+import Link from "next/link";
 
 interface RepositoriesProps {
   name: string
@@ -42,7 +43,8 @@ export function OutrosProjetos() {
                         <a className={styles.projeto__repositorio} href={repository.html_url} target="_blank" rel="noreferrer">
                           <BsGithub />
                         </a>
-                        <a className={`${repository.homepage ? styles.projeto__site : styles.site__disabled}`} href={repository.homepage && repository.homepage} target="_blank" rel="noreferrer">
+                        <a className={`${repository.homepage ? styles.projeto__site : styles.site__disabled}`}
+                        href={repository.homepage && `https://${repository.homepage}`} target="_blank" rel="noreferrer">
                           <BsLink45Deg />
                         </a>
                       </div>
