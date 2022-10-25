@@ -8,21 +8,24 @@ import { OutrosProjetos } from '../components/OutrosProjetos'
 import { Projetos } from '../components/Projetos'
 import { Sobre } from '../components/Sobre'
 import { Welcome } from '../components/Welcome'
+import { RepositoriesProvider } from '../hooks/useRepositories'
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Gabriel Melo | Portfólio</title>
-      </Head>
-      <Header />
-      <SocialMedias />
-      <Email />
-      <Welcome />
-      <Sobre />
-      <Experiencia />
-      <Projetos />
-      <OutrosProjetos />
+      <RepositoriesProvider>
+        <Head>
+          <title>Gabriel Melo | Portfólio</title>
+        </Head>
+        <Header />
+        <SocialMedias />
+        <Email />
+        <Welcome />
+        <Sobre />
+        <Experiencia />
+        <Projetos />
+        <OutrosProjetos />
+      </RepositoriesProvider>
     </>
   )
 }

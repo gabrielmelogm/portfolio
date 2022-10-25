@@ -6,6 +6,7 @@ import styles from "./styles.module.sass"
 import { HiOutlineFolder } from "react-icons/hi"
 import { BsGithub, BsLink45Deg } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import { useRepositories } from "../../hooks/useRepositories";
 
 interface RepositoriesProps {
   name: string
@@ -17,25 +18,13 @@ interface RepositoriesProps {
 
 export function OutrosProjetos() {
   const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
-
-  const [ repositories, setRepositories ] = useState<RepositoriesProps[]>([])
-  // const [ maxRepos, setMaxRepos ] = useState(6)
-
-  async function getRepositories() {
-    await axios.get(`https://api.github.com/users/gabrielmelogm/repos`)
-      .then((response) => setRepositories(response.data))
-      .catch((error) => console.log(error))
-    console.log(repositories)
-    setRepositories(repositories.filter(filterDescription))
+  const { repositories } = useRepositories()
+  const filteredRepositories = repositories.filter(filterDescription)
+  const [ maxRepos, setMaxRepos ] = useState(6)
+  
+  function filterDescription(repo) {
+    if (repo.description) return repo
   }
-
-  function filterDescription(repository) {
-    if (repository.description) return repository
-  }
-
-  useEffect(() => {
-    getRepositories()
-  }, [])
 
   return (
     <section className={styles.outros__projetos}>
@@ -43,9 +32,8 @@ export function OutrosProjetos() {
         <Title align="center">Outros Projetos</Title>
         <ul className={styles.projetos__list}>
           {
-            repositories.map((repository, index) => {
-              console.log(repository)
-              if (index <= 5) {
+            filteredRepositories.map((repository, index) => {
+              if (index <= maxRepos - 1) {
                 return (
                   <li key={repository.name} className={styles.projetos__item}>
                     <div className={styles.projeto__header}>
@@ -83,10 +71,11 @@ export function OutrosProjetos() {
 
         <div className={styles.projetos__footer}>
           <button
+            onClick={() => maxRepos === 6 ? setMaxRepos(20) : setMaxRepos(6)}
             type="button"
             className={styles.projetos__button}
           >
-            <span>Ver mais</span>
+            <span>{maxRepos === 6 ? "Ver mais" : "Ver menos"}</span>
           </button>
         </div>
       </Container>
