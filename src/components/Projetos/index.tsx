@@ -39,7 +39,7 @@ export function Projetos() {
   ]
 
   return (
-    <section className={styles.projetos}>
+    <section id="projetos" className={styles.projetos}>
       <Container>
         <Title>Projetos</Title>
         <ul className={styles.projetos__list}>

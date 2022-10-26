@@ -42,7 +42,7 @@ export function Sobre() {
   ]
 
   return (
-    <section className={styles.sobre}>
+    <section id="sobre" className={styles.sobre}>
       <Container>
         <Title>Sobre mim</Title>
         <div className={styles.sobre__content}>

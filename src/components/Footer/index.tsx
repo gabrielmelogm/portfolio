@@ -3,7 +3,7 @@ import styles from "./styles.module.sass"
 
 export function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer id="contato" className={styles.footer}>
       <Container>
         <div className={styles.footer__content}>
           <h2 className={styles.footer__header}>Próximos Passos</h2>

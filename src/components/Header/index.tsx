@@ -1,5 +1,7 @@
 import { Container } from "../Container"
+import Logo from "../../assets/logo.svg"
 import styles from "./styles.module.sass"
+import Image from "next/image"
 
 export function Header() {
   const nav = [
@@ -9,15 +11,19 @@ export function Header() {
     },
     {
       label: "Sobre",
-      link: "#"
+      link: "#sobre"
     },
     {
-      label: "Stacks",
-      link: "#"
+      label: "Experiência",
+      link: "#experiencia"
     },
     {
       label: "Projetos",
-      link: "#"
+      link: "#projetos"
+    },
+    {
+      label: "Contato",
+      link: "#contato"
     },
   ]
 
@@ -25,13 +31,15 @@ export function Header() {
     <header className={styles.header}>
       <Container>
         <div className={styles.header__content}>
-          <h1 className={styles.logo}>Gabriel Melo</h1>
+          <h1 className={styles.logo}>
+            <Image src={Logo} alt="Logo" width={50} height={50} />
+          </h1>
           <nav className={styles.nav}>
             <ul className={styles.nav__list}>
               {
                 nav.map((item) => (
                   <li key={item.label} className={styles.nav__item}>
-                    <a className={styles.nav__link} href="#">{item.label}</a>
+                    <a className={styles.nav__link} href={item.link}>{item.label}</a>
                   </li>
                 ))
               }

@@ -64,7 +64,7 @@ export function Experiencia() {
   ]
 
   return (
-    <section className={styles.experiencia}>
+    <section id="experiencia" className={styles.experiencia}>
       <Container>
         <Title>Experiência</Title>
         <div className={styles.experiencia__content}>
