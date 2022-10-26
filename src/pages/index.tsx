@@ -3,6 +3,7 @@ import styles from '../../styles/Home.module.sass'
 import { Email } from '../components/Contato/Email'
 import { SocialMedias } from '../components/Contato/SocialMedias'
 import { Experiencia } from '../components/Experiencia'
+import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { OutrosProjetos } from '../components/OutrosProjetos'
 import { Projetos } from '../components/Projetos'
@@ -25,6 +26,7 @@ export default function Home() {
         <Experiencia />
         <Projetos />
         <OutrosProjetos />
+        <Footer />
       </RepositoriesProvider>
     </>
   )
