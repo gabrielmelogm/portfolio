@@ -6,10 +6,6 @@ import Image from "next/image"
 export function Header() {
   const nav = [
     {
-      label: "Home",
-      link: "#"
-    },
-    {
       label: "Sobre",
       link: "#sobre"
     },
@@ -44,9 +40,9 @@ export function Header() {
                 ))
               }
             <li className={styles.nav__item}>
-              <button className={styles.header__button}>
+              <a className={styles.header__button} href="https://drive.google.com/file/d/1kTk9K6L6SoeStSiVpaq3uM-69EuK9lrk/view?usp=sharing" target="_blank" rel="noreferrer">
                 Currículo
-              </button>
+              </a>
             </li>
             </ul>
           </nav>

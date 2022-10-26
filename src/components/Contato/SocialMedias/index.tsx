@@ -8,17 +8,17 @@ export function SocialMedias() {
       <div className={styles.social__bar}></div>
       <ul className={styles.media__list}>
         <li className={styles.media__item}>
-          <a className={styles.media__link} href="#" target="_blank">
+          <a className={styles.media__link} href="https://github.com/gabrielmelogm" target="_blank" rel="noreferrer">
             <BsGithub />
           </a>
         </li>
         <li className={styles.media__item}>
-          <a className={styles.media__link} href="#" target="_blank">
+          <a className={styles.media__link} href="https://www.instagram.com/gabrielmelo.raw/" target="_blank" rel="noreferrer">
             <BsInstagram />
           </a>
         </li>
         <li className={styles.media__item}>
-          <a className={styles.media__link} href="#" target="_blank">
+          <a className={styles.media__link} href="https://www.linkedin.com/in/gabrielmelogm/" target="_blank" rel="noreferrer">
             <FiLinkedin />
           </a>
         </li>

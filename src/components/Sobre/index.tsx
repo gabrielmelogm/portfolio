@@ -47,12 +47,12 @@ export function Sobre() {
         <Title>Sobre mim</Title>
         <div className={styles.sobre__content}>
           <div className={styles.sobre__description}>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem.</p>
+            <p>Olá, me chamo Gabriel Melo, e sou desenvolvedor full stack, minhas stacks são baseadas em <strong>JavaScript (afinal, Deus no céu e javascript na terra)</strong>, usando principalmente minha combinação favorita: <strong>React</strong> e <strong>Node</strong>❤️.</p>
 
-            <p>Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum <strong>comes from sections 1.10.32 and 1.10.33 of</strong> de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the <strong>Renaissance</strong>. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.</p>
+            <p>Eu iniciei minha carreira como <strong>desenvolvedor</strong> em <strong>julho de 2020</strong>, em uma start-up software house focada em logística portuária, desde então eu venho passando por algumas empresas aprendendo diversas tecnologias, e acumulando projetos bem legais, entre eles um sistema de controle de <strong>descarga de navios</strong>, <strong>sistema de chamados</strong>, <strong>hot sites</strong>, entre outros projetos <strong>freelancers</strong> como uma <strong>landing page</strong> parar demonstração de produtos e um <strong>aplicativo de agendamento de bikes</strong>.</p>
           </div>
           <div className={styles.perfil__image}>
-            <Image src={`https://github.com/gabrielmelogm.png`} alt="Foto de perfil" width={400} height={400} />
+            <Image src={`https://github.com/gabrielmelogm.png`} alt="Foto de perfil" width={400} height={0} />
           </div>
         </div>
 

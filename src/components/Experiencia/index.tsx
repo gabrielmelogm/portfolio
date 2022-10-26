@@ -30,14 +30,14 @@ export function Experiencia() {
   const companies: CompanyProps[] = [
     {
       title: "Maximize",
-      subtitle: "Software house focada em comunicação",
+      subtitle: "Software house especialista em comunicação",
       time: "jul de 2022 - Atualmente",
       image: {
         src: Maximize,
         width: 130,
         height: 70
       },
-      description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem."
+      description: "Na maximize eu atuo como desenvolvedor full stack pleno na área de projetos, desenvolvendo site institucionais, landing pages, hot sites e pequenos sistemas, entre as tecnologias que tive contato se destaca o laravel, vue, node, react, stylus e outras, na maxi, as tecnologias são bem diversificadas e decididas conforme a demanda."
     },
     {
       title: "Lampp-it Solutions",
@@ -48,7 +48,7 @@ export function Experiencia() {
         width:  120,
         height: 120
       },
-      description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem."
+      description: "Atuei como desenvolvedor full stack e UX design, eu era sediado para a Seduc - Ma, local onde desenvolvi sistemas desde o protótipo até a aplicação final."
     },
     {
       title: "Bluemarble",
@@ -59,7 +59,7 @@ export function Experiencia() {
         width:  170,
         height: 170
       },
-      description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem."
+      description: "Atuei como desenvolvedor full stack até a gerência de projetos, era responsável pelo desenvolvimento de sistemas complexos de controle logístico em diversas empresas do ramo portuário, projetos que tive a oportunidade de desenvolver plataformas de controle de descarga de navios, sistema de chamados, e automações de processos."
     },
   ]
 

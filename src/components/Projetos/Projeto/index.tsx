@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image"
+import { ReactElement } from "react"
 import { BsGithub, BsLink45Deg } from "react-icons/bs"
 import styles from "./styles.module.sass"
 
@@ -8,7 +9,7 @@ export interface ProjetoProps {
     thumb: StaticImageData
     category: string
     title: string
-    description: string
+    description: ReactElement
     stacks: string[]
     repositoryUrl: string
     link: string
@@ -41,10 +42,10 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               }
             </ul>
             <div className={styles.projeto__link}>
-              <a className={styles.projeto__site} href={projeto.link}>
+              <a className={styles.projeto__site} href={projeto.link} target="_blank" rel="noreferrer">
                 <BsLink45Deg />
               </a>
-              <a className={styles.projeto__repositorio} href={projeto.repositoryUrl}>
+              <a className={styles.projeto__repositorio} href={projeto.repositoryUrl} target="_blank" rel="noreferrer">
                 <BsGithub />
               </a>
             </div>
@@ -69,10 +70,10 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               }
             </ul>
             <div className={`${styles.projeto__link} ${styles.link__left}`}>
-              <a className={styles.projeto__site} href={projeto.link}>
+              <a className={styles.projeto__site} href={projeto.link} target="_blank" rel="noreferrer">
                 <BsLink45Deg />
               </a>
-              <a className={styles.projeto__repositorio} href={projeto.repositoryUrl}>
+              <a className={styles.projeto__repositorio} href={projeto.repositoryUrl} target="_blank" rel="noreferrer">
                 <BsGithub />
               </a>
             </div>
