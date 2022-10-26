@@ -16,7 +16,7 @@ export function Welcome() {
         </div>
         <h3 className={styles.subTitle}>Sou desenvolvedor full stack.</h3>
         <p className={styles.description}>
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at <strong>Hampden-Sydney College</strong>.
+          Sou um <strong>jovem desenvolvedor curioso e movido por desafios</strong>, gosto de trabalhar com tecnologias diferentes e desvendar os mais complexos paradigmas até <strong>secar a minha garrafa de café</strong>.
         </p>
       </Container>
     </section>

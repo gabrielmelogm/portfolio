@@ -16,10 +16,10 @@ export function Projetos() {
         thumb: Dtmoney,
         category: "Projeto de Desafio",
         title: "Dtmoney",
-        description: "A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.",
+        description: <p>Uma aplicação simples de <strong>controle de gastos</strong> que tem como funcionalidades <strong>cadastrar entradas e saídas</strong> por meio de login social com <strong>Google</strong> e <strong>Github</strong>.</p>,
         stacks: ["Firebase", "Create React App", "Styled Components","Docker"],
-        repositoryUrl: "#",
-        link: "#"
+        repositoryUrl: "https://github.com/gabrielmelogm/dtmoney",
+        link: "https://dtmoney-sigma-seven.vercel.app/"
       },
       align: "right"
     },
@@ -29,10 +29,10 @@ export function Projetos() {
         thumb: MarioJump,
         category: "Projeto Pessoal",
         title: "Mario jump",
-        description: "A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.",
+        description: <p>Um pequeno projeto que fiz do jogo que mais <strong>me marcou quando era criança</strong>, o jogo consiste em <strong>pular os canos para alcançar a maior distância possível</strong>.</p>,
         stacks: ["HTML5", "CSS3", "Vanilla Javascript"],
-        repositoryUrl: "#",
-        link: "#"
+        repositoryUrl: "https://github.com/gabrielmelogm/mario-jump",
+        link: "https://mario-jump-three.vercel.app/"
       },
       align: "left"
     },
