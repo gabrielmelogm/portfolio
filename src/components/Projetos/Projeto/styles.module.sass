@@ -6,7 +6,12 @@
   grid-template-columns: repeat(2, 1fr)
 
 .projeto__image
+  filter: grayscale(1)
   object-fit: cover
+  transition: filter 200ms
+
+  &:hover
+    filter: grayscale(0)
 
 .projeto__info
   width: 100%
@@ -38,6 +43,7 @@
 .description__left
   margin-left: unset
   margin-right: -5rem
+  padding: 1rem 5rem 1rem 1rem
 
 .projeto__text
   font-size: 16px
