@@ -1,0 +1,44 @@
+@import "/styles/Home.module.sass"
+  
+.login
+  width: 100%
+  height: 100vh
+  display: flex
+  align-items: center
+  justify-content: center
+
+.content
+  padding: 30px
+  border-radius: 5px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  background-color: $badge
+
+.title
+  margin-top: 1em
+  font-size: 24px
+  font-weight: 800
+
+.subtitle
+  margin-top: 0.5em
+  font-size: 12px
+  font-weight: 300
+
+.button
+  margin-top: 2rem
+  padding: 10px 40px
+  font-size: 16px
+  font-weight: 800
+  border-radius: 20px
+  display: flex
+  align-items: center
+  gap: 1rem
+  border: 1px solid $cinza
+  background-color: transparent
+  transition: $background-smooth
+  
+  &:hover
+    cursor: pointer
+    background-color: $cor-primaria
