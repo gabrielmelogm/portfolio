@@ -1,11 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../../../styles/Login.module.sass"
+import styles from "../../../styles/manager/Login.module.sass"
+
+import { signIn, signOut } from "next-auth/react"
 
 import Logo from "../../assets/logo.svg"
-import { BsGoogle } from "react-icons/bs"
+import { BsGithub } from "react-icons/bs"
+import { useRouter } from "next/router";
+import { useRequireAuth } from "../../utils/useRequireAuth";
 
 export default function Login() {
+  const router = useRouter()
+  const session = useRequireAuth()
+
+  async function SignIn() {
+    await signIn("github")
+  }
+
   return (
     <>
       <Head>
@@ -16,9 +27,15 @@ export default function Login() {
           <Image className={styles.logo} src={Logo} alt="Logo" />
           <h1 className={styles.title}>Login</h1>
           <h2 className={styles.subtitle}>Faça login social</h2>
-          <button className={styles.button}>
-            <BsGoogle />
-            Sign in with Google
+          <button 
+            onClick={() => SignIn()}
+            className={styles.button}
+          >
+            <BsGithub />
+            Sign in with GitHub
+          </button>
+          <button onClick={() => signOut()}>
+            Sair
           </button>
         </div>
       </div>
