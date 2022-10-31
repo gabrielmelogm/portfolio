@@ -11,6 +11,7 @@ export function useRequireAuth() {
     if (
       !session &&
       typeof session != "undefined" &&
+      router.asPath !== "/manager" &&
       router.asPath.includes("manager")
     ) {
       router.push("/manager");

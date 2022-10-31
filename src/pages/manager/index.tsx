@@ -8,14 +8,15 @@ import Logo from "../../assets/logo.svg"
 import { BsGithub } from "react-icons/bs"
 import { useRouter } from "next/router";
 import { useRequireAuth } from "../../utils/useRequireAuth";
+import { useEffect } from "react";
 
 export default function Login() {
   const router = useRouter()
   const session = useRequireAuth()
 
-  async function SignIn() {
-    await signIn("github")
-  }
+  useEffect(() => {
+    if (session) router.push('/manager/main')
+  }, [session])
 
   return (
     <>
@@ -28,14 +29,11 @@ export default function Login() {
           <h1 className={styles.title}>Login</h1>
           <h2 className={styles.subtitle}>Faça login social</h2>
           <button 
-            onClick={() => SignIn()}
+            onClick={() => signIn("github")}
             className={styles.button}
           >
             <BsGithub />
             Sign in with GitHub
-          </button>
-          <button onClick={() => signOut()}>
-            Sair
           </button>
         </div>
       </div>
