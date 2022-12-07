@@ -87,3 +87,11 @@
     cursor: pointer
     background-color: $cor-primaria
     color: $branco
+
+@media (max-width: $tablet-large)
+  .projetos__list
+    grid-template-columns: repeat(2, 1fr)
+
+@media (max-width: $tablet-medium)
+  .projetos__list
+    grid-template-columns: repeat(1, 1fr)
