@@ -21,10 +21,14 @@
       font-weight: 800
       color: $cor-primaria
 
-.perfil__image
+.perfil__content
   width: 100%
   display: flex
   justify-content: center
+
+.perfil__image
+  width: 100%
+  max-width: 400px
 
 .tecnologias__title
   font-size: 18px
@@ -33,10 +37,25 @@
 
 .tecnologias__list
   margin-top: 2rem
-  display: flex
-  align-items: center
-  gap: 2rem
+  width: 100%
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr))
+  grid-gap: 2rem
+  max-width: 600px
 
 .tecnologias__item
   font-size: 30px
   color: $cor-secundaria
+
+
+@media (max-width: $desktop-small)
+  .sobre__content
+    display: flex
+    flex-direction: column-reverse
+
+  .sobre__description
+    text-align: justify
+
+  .tecnologias__title
+    display: inline-block
+    margin-top: 1rem
