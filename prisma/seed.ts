@@ -22,6 +22,26 @@ async function main() {
       },
     },
   });
+  await prisma.projects.create({
+    data: {
+      thumb: "",
+      category: "Projeto Pessoal",
+      title: "Mario jump",
+      description:
+        "<p>Um pequeno projeto que fiz do jogo que mais <strong>me marcou quando era criança</strong>, o jogo consiste em <strong>pular os canos para alcançar a maior distância possível</strong>.</p>",
+      repositoryUrl: "https://github.com/gabrielmelogm/mario-jump",
+      link: "https://mario-jump-three.vercel.app/",
+      stacks: {
+        createMany: {
+          data: [
+            { name: "HTML5" },
+            { name: "CSS3" },
+            { name: "Vanilla Javascript" },
+          ],
+        },
+      },
+    },
+  });
 }
 
 main();
