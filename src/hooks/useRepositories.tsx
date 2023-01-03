@@ -7,6 +7,7 @@ interface RepositoriesProps {
   language: string
   homepage: string
   html_url: string
+  topics: string[]
 }
 
 interface RepositoriesContextData {

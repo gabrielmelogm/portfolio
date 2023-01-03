@@ -5,17 +5,8 @@ import styles from "./styles.module.sass"
 
 import { HiOutlineFolder } from "react-icons/hi"
 import { BsGithub, BsLink45Deg } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRepositories } from "../../hooks/useRepositories";
-import Link from "next/link";
-
-interface RepositoriesProps {
-  name: string
-  description: string
-  language: string
-  homepage: string
-  html_url: string
-}
 
 export function OutrosProjetos() {
   const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
@@ -44,7 +35,7 @@ export function OutrosProjetos() {
                           <BsGithub />
                         </a>
                         <a className={`${repository.homepage ? styles.projeto__site : styles.site__disabled}`}
-                        href={repository.homepage && `https://${repository.homepage}`} target="_blank" rel="noreferrer">
+                        href={repository.homepage.includes("https") ? `${repository.homepage}` : `https://${repository.homepage}`} target="_blank" rel="noreferrer">
                           <BsLink45Deg />
                         </a>
                       </div>
@@ -57,9 +48,13 @@ export function OutrosProjetos() {
                         {repository.description}
                       </p>
                       <ul className={styles.stacks__list}>
-                        <li className={styles.stacks__item}>
-                          {repository.language}
-                        </li>
+                          {
+                            repository.topics.map((topic, index) => (
+                              <li key={index} className={styles.stacks__item}>
+                                  {capitalize(topic.replaceAll("-", " "))}
+                              </li>
+                            ))
+                          }
                       </ul>
                     </div>
                   </li>
