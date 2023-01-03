@@ -17,6 +17,30 @@
   dependencies:
     "regenerator-runtime" "^0.13.4"
 
+"@esbuild-kit/cjs-loader@^2.4.0":
+  "integrity" "sha512-lhc/XLith28QdW0HpHZvZKkorWgmCNT7sVelMHDj3HFdTfdqkwEKvT+aXVQtNAmCC39VJhunDkWhONWB7335mg=="
+  "resolved" "https://registry.npmjs.org/@esbuild-kit/cjs-loader/-/cjs-loader-2.4.1.tgz"
+  "version" "2.4.1"
+  dependencies:
+    "@esbuild-kit/core-utils" "^3.0.0"
+    "get-tsconfig" "^4.2.0"
+
+"@esbuild-kit/core-utils@^3.0.0":
+  "integrity" "sha512-TXmwH9EFS3DC2sI2YJWJBgHGhlteK0Xyu1VabwetMULfm3oYhbrsWV5yaSr2NTWZIgDGVLHbRf0inxbjXqAcmQ=="
+  "resolved" "https://registry.npmjs.org/@esbuild-kit/core-utils/-/core-utils-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "esbuild" "~0.15.10"
+    "source-map-support" "^0.5.21"
+
+"@esbuild-kit/esm-loader@^2.5.0":
+  "integrity" "sha512-afmtLf6uqxD5IgwCzomtqCYIgz/sjHzCWZFvfS5+FzeYxOURPUo4QcHtqJxbxWOMOogKriZanN/1bJQE/ZL93A=="
+  "resolved" "https://registry.npmjs.org/@esbuild-kit/esm-loader/-/esm-loader-2.5.4.tgz"
+  "version" "2.5.4"
+  dependencies:
+    "@esbuild-kit/core-utils" "^3.0.0"
+    "get-tsconfig" "^4.2.0"
+
 "@eslint/eslintrc@^1.3.3":
   "integrity" "sha512-uj3pT6Mg+3t39fvLrj8iuCIJ38zKO9FpGtJ4BBJebJhEwjoT+KLVNCcHT5QC9NGRIEi7fZ0ZR8YRb884auB4Lg=="
   "resolved" "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.3.3.tgz"
@@ -98,6 +122,23 @@
   "integrity" "sha512-MSAs9t3Go7GUkMhpKC44T58DJ5KGk2vBo+h1cqQeqlMfdGkxaVB78ZWpv9gYi/g2fa4sopag9gJsNvS8XGgWJA=="
   "resolved" "https://registry.npmjs.org/@panva/hkdf/-/hkdf-1.0.2.tgz"
   "version" "1.0.2"
+
+"@prisma/client@^4.8.0":
+  "integrity" "sha512-Y1riB0p2W52kh3zgssP/YAhln3RjBFcJy3uwEiyjmU+TQYh6QTZDRFBo3JtBWuq2FyMOl1Rye8jxzUP+n0l5Cg=="
+  "resolved" "https://registry.npmjs.org/@prisma/client/-/client-4.8.0.tgz"
+  "version" "4.8.0"
+  dependencies:
+    "@prisma/engines-version" "4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe"
+
+"@prisma/engines-version@4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe":
+  "integrity" "sha512-MHSOSexomRMom8QN4t7bu87wPPD+pa+hW9+71JnVcF3DqyyO/ycCLhRL1we3EojRpZxKvuyGho2REQsMCvxcJw=="
+  "resolved" "https://registry.npmjs.org/@prisma/engines-version/-/engines-version-4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe.tgz"
+  "version" "4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe"
+
+"@prisma/engines@4.8.0":
+  "integrity" "sha512-A1Asn2rxZMlLAj1HTyfaCv0VQrLUv034jVay05QlqZg1qiHPeA3/pGTfNMijbsMYCsGVxfWEJuaZZuNxXGMCrA=="
+  "resolved" "https://registry.npmjs.org/@prisma/engines/-/engines-4.8.0.tgz"
+  "version" "4.8.0"
 
 "@rushstack/eslint-patch@^1.1.3":
   "integrity" "sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg=="
@@ -334,6 +375,11 @@
   dependencies:
     "fill-range" "^7.0.1"
 
+"buffer-from@^1.0.0":
+  "integrity" "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ=="
+  "resolved" "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz"
+  "version" "1.1.2"
+
 "call-bind@^1.0.0", "call-bind@^1.0.2":
   "integrity" "sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA=="
   "resolved" "https://registry.npmjs.org/call-bind/-/call-bind-1.0.2.tgz"
@@ -545,6 +591,39 @@
     "is-callable" "^1.1.4"
     "is-date-object" "^1.0.1"
     "is-symbol" "^1.0.2"
+
+"esbuild-linux-64@0.15.18":
+  "integrity" "sha512-hNSeP97IviD7oxLKFuii5sDPJ+QHeiFTFLoLm7NZQligur8poNOWGIgpQ7Qf8Balb69hptMZzyOBIPtY09GZYw=="
+  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.15.18.tgz"
+  "version" "0.15.18"
+
+"esbuild@~0.15.10":
+  "integrity" "sha512-x/R72SmW3sSFRm5zrrIjAhCeQSAWoni3CmHEqfQrZIQTM3lVCdehdwuIqaOtfC2slvpdlLa62GYoN8SxT23m6Q=="
+  "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.15.18.tgz"
+  "version" "0.15.18"
+  optionalDependencies:
+    "@esbuild/android-arm" "0.15.18"
+    "@esbuild/linux-loong64" "0.15.18"
+    "esbuild-android-64" "0.15.18"
+    "esbuild-android-arm64" "0.15.18"
+    "esbuild-darwin-64" "0.15.18"
+    "esbuild-darwin-arm64" "0.15.18"
+    "esbuild-freebsd-64" "0.15.18"
+    "esbuild-freebsd-arm64" "0.15.18"
+    "esbuild-linux-32" "0.15.18"
+    "esbuild-linux-64" "0.15.18"
+    "esbuild-linux-arm" "0.15.18"
+    "esbuild-linux-arm64" "0.15.18"
+    "esbuild-linux-mips64le" "0.15.18"
+    "esbuild-linux-ppc64le" "0.15.18"
+    "esbuild-linux-riscv64" "0.15.18"
+    "esbuild-linux-s390x" "0.15.18"
+    "esbuild-netbsd-64" "0.15.18"
+    "esbuild-openbsd-64" "0.15.18"
+    "esbuild-sunos-64" "0.15.18"
+    "esbuild-windows-32" "0.15.18"
+    "esbuild-windows-64" "0.15.18"
+    "esbuild-windows-arm64" "0.15.18"
 
 "escape-string-regexp@^4.0.0":
   "integrity" "sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA=="
@@ -880,6 +959,11 @@
   dependencies:
     "call-bind" "^1.0.2"
     "get-intrinsic" "^1.1.1"
+
+"get-tsconfig@^4.2.0":
+  "integrity" "sha512-YCcF28IqSay3fqpIu5y3Krg/utCBHBeoflkZyHj/QcqI2nrLPC3ZegS9CmIo+hJb8K7aiGsuUl7PwWVjNG2HQQ=="
+  "resolved" "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.3.0.tgz"
+  "version" "4.3.0"
 
 "glob-parent@^5.1.2":
   "integrity" "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow=="
@@ -1529,6 +1613,13 @@
   "resolved" "https://registry.npmjs.org/pretty-format/-/pretty-format-3.8.0.tgz"
   "version" "3.8.0"
 
+"prisma@*", "prisma@^4.8.0":
+  "integrity" "sha512-DWIhxvxt8f4h6MDd35mz7BJff+fu7HItW3WPDIEpCR3RzcOWyiHBbLQW5/DOgmf+pRLTjwXQob7kuTZVYUAw5w=="
+  "resolved" "https://registry.npmjs.org/prisma/-/prisma-4.8.0.tgz"
+  "version" "4.8.0"
+  dependencies:
+    "@prisma/engines" "4.8.0"
+
 "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
@@ -1714,6 +1805,19 @@
   "resolved" "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz"
   "version" "1.0.2"
 
+"source-map-support@^0.5.21":
+  "integrity" "sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w=="
+  "resolved" "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz"
+  "version" "0.5.21"
+  dependencies:
+    "buffer-from" "^1.0.0"
+    "source-map" "^0.6.0"
+
+"source-map@^0.6.0":
+  "integrity" "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g=="
+  "resolved" "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz"
+  "version" "0.6.1"
+
 "ssr-window@^4.0.0", "ssr-window@^4.0.2":
   "integrity" "sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ=="
   "resolved" "https://registry.npmjs.org/ssr-window/-/ssr-window-4.0.2.tgz"
@@ -1831,6 +1935,17 @@
   "version" "3.21.0"
   dependencies:
     "tslib" "^1.8.1"
+
+"tsx@^3.12.1":
+  "integrity" "sha512-Rcg1x+rNe7qwlP8j7kx4VjP/pJo/V57k+17hlrn6a7FuQLNwkaw5W4JF75tYornNVCxkXdSUnqlIT8JY/ttvIw=="
+  "resolved" "https://registry.npmjs.org/tsx/-/tsx-3.12.1.tgz"
+  "version" "3.12.1"
+  dependencies:
+    "@esbuild-kit/cjs-loader" "^2.4.0"
+    "@esbuild-kit/core-utils" "^3.0.0"
+    "@esbuild-kit/esm-loader" "^2.5.0"
+  optionalDependencies:
+    "fsevents" "~2.3.2"
 
 "type-check@^0.4.0", "type-check@~0.4.0":
   "integrity" "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew=="

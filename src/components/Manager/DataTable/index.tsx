@@ -1,8 +1,19 @@
 import styles from "./styles.module.sass"
 import { MdEdit, MdDelete } from "react-icons/md"
+import { ReactElement } from "react"
+
+interface DataTableProps {
+  thumb: string
+  category: string
+  title: string
+  description: ReactElement
+  stacks: string[]
+  repositoryUrl: string
+  link: string
+}
 
 export function DataTable() {
-  const data = [
+  const data: DataTableProps[] = [
     {
       thumb: "#",
       category: "Projeto de Desafio",
@@ -15,55 +26,36 @@ export function DataTable() {
   ]
 
   return (
-    <table className={styles.table}>
-      <thead className={styles.thead}>
-      <tr className={styles.tr}>
-        <th className={styles.th} scope="col">Title</th>
-        <th className={styles.th} scope="col">Category</th>
-        <th className={styles.th} scope="col">Description</th>
-        <th className={styles.th} scope="col"></th>
-      </tr>
-    </thead>
-    <tbody className={styles.tbody}>
-      {
-        data.map((item, index) => (
-          <tr key={index} className={styles.tr__body}>
-            <th
-              className={styles.th__body}
-              scope="row"
-            >
-              {item.title}
-            </th>
-            <td
-              className={styles.td__body}
-              data-title="Category"
-              align="center"
-            >
-              {item.category}
-            </td>
-            <td 
-              className={styles.td__body}
-              data-title="Description"
-            >
-              {item.description}
-            </td>
-            <td 
-              className={styles.td__body}
-              data-title="Description"
-            >
-              <div className={styles.actions}>
-                <button className={styles.button}>
+    <div className={styles.datatable}>
+      <h2 className={styles.title}>Projetos</h2>
+      <div className={`${styles.row} ${styles.head}}`}>
+        <div className={`${styles.small} ${styles.reverse}`}><label htmlFor="reverse"></label></div>
+        <div className={styles.reverse}><label htmlFor="reverse">Categoria</label></div>
+        <div className={styles.reverse}><label htmlFor="reverse">Título</label></div>
+        <div className={styles.type}><label htmlFor="type">Descrição</label></div>
+      </div>
+
+      <div className={styles.content}>
+        {
+          data.map((item, index) => (
+            <div key={index} className={`${styles.row} ${styles.science}`}>
+              <div className={`${styles.small} ${styles.actions}`}>
+                <button className={styles.edit}>
                   <MdEdit />
                 </button>
-                <button className={styles.button}>
+                <button className={styles.delete}>
                   <MdDelete />
                 </button>
               </div>
-            </td>
-          </tr>
-        ))
-      }
-    </tbody>
-    </table>
+              <div className={styles.dataRow}>{item.category}</div>
+              <div className={styles.dataRow}>{item.title}</div>
+              <div className={styles.dataRow}>
+                {item.description}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+  </div>
   )
 }
