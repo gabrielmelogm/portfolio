@@ -31,6 +31,6 @@ model Stacks {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  project   Projects  @relation(fields: [projectId], references: [id])
+  project   Projects  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   projectId String
 }

@@ -3,7 +3,7 @@ import { prisma } from "../src/plugins/prisma";
 async function main() {
   await prisma.projects.create({
     data: {
-      thumb: "",
+      thumb: "https://i.ibb.co/G9Q29M6/dtmoney.png",
       category: "Projeto de Desafio",
       title: "Dtmoney",
       description:
@@ -24,7 +24,7 @@ async function main() {
   });
   await prisma.projects.create({
     data: {
-      thumb: "",
+      thumb: "https://i.ibb.co/nBkbkKW/mario-jump.png",
       category: "Projeto Pessoal",
       title: "Mario jump",
       description:
