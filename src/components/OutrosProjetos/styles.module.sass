@@ -1,0 +1,101 @@
+@import "/styles/Home.module.sass"
+  
+.outros__projetos
+  margin-top: 8rem
+
+.projetos__list
+  margin-top: 5rem
+  width: 100%
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-gap: 2rem
+
+.projetos__item
+  position: relative
+  border-radius: 5px
+  padding: 20px 20px 40px 20px
+  background-color: $cor-terciaria
+
+.projeto__header
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.projeto__icon
+  font-size: 50px
+  color: $cor-primaria
+
+.projeto__link
+  display: flex
+  align-items: center
+  gap: 1rem
+
+.projeto__repositorio,
+.projeto__site,
+.site__disabled
+  transition: $color-smooth
+  font-size: 22px
+  color: $cor-secundaria
+
+  &:hover
+    cursor: pointer
+    color: $cor-primaria
+
+.site__disabled
+  opacity: 0.3
+
+  &:hover
+    cursor: default
+    color: $cor-secundaria
+
+.projeto__content
+  margin-top: 1rem
+
+.projeto__title
+  font-size: 22px
+
+.projeto__description
+  display: inline-block
+  margin: 16px 0 32px 0
+  font-size: 16px
+  line-height: 1.6
+  color: $cor-secundaria
+
+.stacks__list
+  position: absolute
+  bottom: 20px
+  display: flex
+  gap: 16px
+  color: $cor-secundaria
+
+.projetos__footer
+  margin-top: 2rem
+  margin-bottom: 2rem
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+
+.projetos__button
+  padding: 15px 20px
+  border: 1px solid $cor-primaria
+  border-radius: 5px
+  font-size: 16px
+  font-weight: 800
+  color: $cor-primaria
+  transition: $background-smooth
+  transition: $color-smooth
+
+  &:hover
+    cursor: pointer
+    background-color: $cor-primaria
+    color: $branco
+
+@media (max-width: $tablet-large)
+  .projetos__list
+    grid-template-columns: repeat(2, 1fr)
+
+@media (max-width: $tablet-medium)
+  .projetos__list
+    grid-template-columns: repeat(1, 1fr)

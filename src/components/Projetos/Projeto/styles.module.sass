@@ -1,0 +1,95 @@
+@import "styles/Home.module.sass"
+  
+.projeto__item
+  width: 100%
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+
+.projeto__image
+  width: 870px
+  height: 490px
+  filter: grayscale(1)
+  object-fit: cover
+  transition: filter 200ms
+
+  &:hover
+    filter: grayscale(0)
+
+.projeto__info
+  width: 100%
+  display: flex
+  flex-direction: column
+  text-align: right
+
+.info__left
+  text-align: left
+
+.projeto__category
+  font-size: 18px
+  font-weight: 300
+  color: $branco
+
+.projeto__title
+  font-size: 50px
+  font-weight: 800
+  color: $cor-primaria
+
+.projeto__description
+  margin-top: 2rem
+  margin-bottom: 2rem
+  margin-left: -5rem
+  z-index: 1
+  padding: 1rem 1rem 1rem 5rem
+  background-color: $cor-terciaria
+
+.description__left
+  margin-left: unset
+  margin-right: -5rem
+  padding: 1rem 5rem 1rem 1rem
+
+.projeto__text
+  font-size: 18px
+  line-height: 1.6
+  color: $cor-secundaria
+
+  b,
+  strong
+    color: $cor-primaria
+
+.stacks__list
+  display: flex
+  flex-direction: row-reverse
+  gap: 3em
+
+.stacks__left
+  flex-direction: row
+
+.stacks__item
+  font-size: 16px
+  font-weight: 300
+  color: $cor-secundaria
+
+.projeto__link
+  margin-top: 1rem
+  display: flex
+  flex-direction: row-reverse
+  align-items: center
+  gap: 1em
+  color: $cor-secundaria
+
+  .projeto__repositorio,
+  .projeto__site
+    transition: $color-smooth
+
+    &:hover
+      cursor: pointer
+      color: $cor-primaria
+  
+  .projeto__repositorio
+    font-size: 20px
+
+  .projeto__site
+    font-size: 25px
+
+.link__left
+  justify-content: flex-end

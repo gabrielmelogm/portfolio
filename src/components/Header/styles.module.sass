@@ -1,0 +1,47 @@
+@import "/styles/Home.module.sass"
+
+.header
+  padding: 2rem 0
+
+.header__content
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.logo
+  font-size: 22px
+  text-transform: uppercase
+  font-weight: 900
+  color: $cor-primaria
+
+.nav__list
+  display: flex
+  align-items: center
+  gap: 3em
+  font-size: 12px
+  font-weight: 500
+  text-transform: uppercase
+  color: $branco
+
+.nav__item
+  transition: $color-smooth
+
+  &:hover
+    cursor: pointer
+    color: $cor-primaria
+
+.header__button
+  font-size: 12px
+  font-weight: 800
+  text-transform: uppercase
+  padding: 10px 15px
+  border: 2px solid $cor-primaria
+  border-radius: 5px
+  color: $cor-primaria
+  transition: $background-smooth
+  transition: $color-smooth
+
+  &:hover
+    cursor: pointer
+    background-color: $cor-primaria
+    color: $branco

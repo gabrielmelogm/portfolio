@@ -1,0 +1,34 @@
+@import "styles/Home.module.sass"
+  
+.social__medias
+  width: 40px
+  position: fixed
+  bottom: 0
+  left: 40px
+  display: flex
+  flex-direction: column-reverse
+  align-items: center
+
+.social__bar
+  width: 1px
+  height: 150px
+  background-color: transparentize($cinza, 0.5)
+
+.media__list
+  margin-bottom: 1rem
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+  font-size: 22px
+  color: $cor-secundaria
+
+.media__item
+
+  a
+    display: inline-block
+    position: relative
+    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1)
+
+    &:hover
+      transform: translateY(-3px)
+      color: $cor-primaria
