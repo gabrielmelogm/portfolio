@@ -1,6 +1,7 @@
 import { BsGithub, BsLink45Deg } from "react-icons/bs"
 import styles from "./styles.module.sass"
 import parse from "html-react-parser"
+import Image from "next/image"
 
 export interface ProjetoProps {
   projeto: {
@@ -36,7 +37,14 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
       align === "right" ? (
         <li className={styles.projeto__item}>
           <div className={styles.projeto__thumb}>
-            <img className={styles.projeto__image} src={projeto.attributes.thumb.data.attributes.url} alt={projeto.attributes.thumb.data.attributes.alternativeText} />
+            <Image
+              layout="responsive"
+              className={styles.projeto__image}
+              width={projeto.attributes.thumb.data.attributes.width}
+              height={projeto.attributes.thumb.data.attributes.height}
+              src={projeto.attributes.thumb.data.attributes.url}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+            />
           </div>
           <div className={styles.projeto__info}>
             <h2 className={styles.projeto__category}>{projeto.attributes.category}</h2>
@@ -91,7 +99,14 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
             </div>
           </div>
           <div className={styles.projeto__thumb}>
-            <img className={styles.projeto__image} src={projeto.attributes.thumb.data.attributes.url} alt={projeto.attributes.thumb.data.attributes.alternativeText} />
+            <Image
+              className={styles.projeto__image}
+              layout="responsive"
+              width={projeto.attributes.thumb.data.attributes.width}
+              height={projeto.attributes.thumb.data.attributes.height}
+              src={projeto.attributes.thumb.data.attributes.url}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+            />
           </div>
         </li>
       )
