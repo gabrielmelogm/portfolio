@@ -1,19 +1,31 @@
 import { BsGithub, BsLink45Deg } from "react-icons/bs"
 import styles from "./styles.module.sass"
 import parse from "html-react-parser"
+import Image from "next/image"
 
 export interface ProjetoProps {
   projeto: {
-    id?: string
-    thumb: string
-    category: string
-    title: string
-    description: string
-    stacks: {
-      name: string
-    }[]
-    repositoryUrl: string
-    link: string
+    id?: number
+    attributes: {
+      title: string
+      category: string
+      description: string
+      stacks: string
+      repositoryUrl: string
+      link: string
+      thumb: {
+        data: {
+          attributes: {
+            name: string
+            alternativeText?: string
+            caption?: string
+            width: number
+            height: number
+            url: string
+          }
+        }
+      }
+    }
   }
   align?: "right" | "left"
 }
@@ -25,28 +37,35 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
       align === "right" ? (
         <li className={styles.projeto__item}>
           <div className={styles.projeto__thumb}>
-            <img className={styles.projeto__image} src={projeto.thumb} alt="Imagem do projeto" />
+            <Image
+              layout="responsive"
+              className={styles.projeto__image}
+              width={projeto.attributes.thumb.data.attributes.width}
+              height={projeto.attributes.thumb.data.attributes.height}
+              src={projeto.attributes.thumb.data.attributes.url}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+            />
           </div>
           <div className={styles.projeto__info}>
-            <h2 className={styles.projeto__category}>{projeto.category}</h2>
-            <h2 className={styles.projeto__title}>{projeto.title}</h2>
+            <h2 className={styles.projeto__category}>{projeto.attributes.category}</h2>
+            <h2 className={styles.projeto__title}>{projeto.attributes.title}</h2>
             <div className={styles.projeto__description}>
-              <p className={styles.projeto__text}>{parse(projeto.description)}</p>
+              <p className={styles.projeto__text}>{parse(projeto.attributes.description)}</p>
             </div>
             <ul className={styles.stacks__list}>
               {
-                projeto.stacks.map((stack) => (
-                  <li key={stack.name} className={styles.stacks__item}>
-                    {stack.name}
+                projeto.attributes.stacks.split(",").map((stack) => (
+                  <li key={stack} className={styles.stacks__item}>
+                    {stack}
                   </li>
                 ))
               }
             </ul>
             <div className={styles.projeto__link}>
-              <a className={styles.projeto__site} href={projeto.link} target="_blank" rel="noreferrer">
+              <a className={styles.projeto__site} href={projeto.attributes.link} target="_blank" rel="noreferrer">
                 <BsLink45Deg />
               </a>
-              <a className={styles.projeto__repositorio} href={projeto.repositoryUrl} target="_blank" rel="noreferrer">
+              <a className={styles.projeto__repositorio} href={projeto.attributes.repositoryUrl} target="_blank" rel="noreferrer">
                 <BsGithub />
               </a>
             </div>
@@ -56,31 +75,38 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
       (
         <li className={styles.projeto__item}>
           <div className={`${styles.projeto__info} ${styles.info__left}`}>
-            <h2 className={styles.projeto__category}>{projeto.category}</h2>
-            <h2 className={styles.projeto__title}>{projeto.title}</h2>
+            <h2 className={styles.projeto__category}>{projeto.attributes.category}</h2>
+            <h2 className={styles.projeto__title}>{projeto.attributes.title}</h2>
             <div className={`${styles.projeto__description} ${styles.description__left}`}>
-              <p className={styles.projeto__text}>{parse(projeto.description)}</p>
+              <p className={styles.projeto__text}>{parse(projeto.attributes.description)}</p>
             </div>
             <ul className={`${styles.stacks__list} ${styles.stacks__left}`}>
               {
-                projeto.stacks.map((stack) => (
-                  <li key={stack.name} className={styles.stacks__item}>
-                    {stack.name}
+                projeto.attributes.stacks.split(",").map((stack) => (
+                  <li key={stack} className={styles.stacks__item}>
+                    {stack}
                   </li>
                 ))
               }
             </ul>
             <div className={`${styles.projeto__link} ${styles.link__left}`}>
-              <a className={styles.projeto__site} href={projeto.link} target="_blank" rel="noreferrer">
+              <a className={styles.projeto__site} href={projeto.attributes.link} target="_blank" rel="noreferrer">
                 <BsLink45Deg />
               </a>
-              <a className={styles.projeto__repositorio} href={projeto.repositoryUrl} target="_blank" rel="noreferrer">
+              <a className={styles.projeto__repositorio} href={projeto.attributes.repositoryUrl} target="_blank" rel="noreferrer">
                 <BsGithub />
               </a>
             </div>
           </div>
           <div className={styles.projeto__thumb}>
-            <img className={styles.projeto__image} src={projeto.thumb} alt="Imagem do projeto" />
+            <Image
+              className={styles.projeto__image}
+              layout="responsive"
+              width={projeto.attributes.thumb.data.attributes.width}
+              height={projeto.attributes.thumb.data.attributes.height}
+              src={projeto.attributes.thumb.data.attributes.url}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+            />
           </div>
         </li>
       )
