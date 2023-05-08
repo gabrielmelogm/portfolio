@@ -2,23 +2,34 @@ import styles from "./styles.module.sass"
 
 import { useEffect, useState } from "react"
 import ReactLoading from "react-loading"
-import axios from "axios"
 
 import { Container } from "../Container"
 import { Title } from "../Title"
 import { Projeto } from "./Projeto"
+import { api } from "../../lib/api"
 
 interface ProjetoProps {
-  id?: string
-  thumb: string
-  category: string
-  title: string
-  description: string
-  stacks: {
-    name: string
-  }[]
-  repositoryUrl: string
-  link: string
+  id?: number
+  attributes: {
+    title: string
+    category: string
+    description: string
+    stacks: string
+    repositoryUrl: string
+    link: string
+    thumb: {
+      data: {
+        attributes: {
+          name: string
+          alternativeText?: string
+          caption?: string
+          width: number
+          height: number
+          url: string
+        }
+      }
+    }
+  }
 }
 
 export function Projetos() {
@@ -31,10 +42,10 @@ export function Projetos() {
 
   async function getProjetos() {
     setLoading(true)
-    await axios.get("/api/projects")
+    await api.get("/projects?populate=*")
       .then(({data}) => {
         setProjetos([])
-        setProjetos(data)
+        setProjetos(data?.data)
         setLoading(false)
       })
       .catch((error) => console.error(error))
