@@ -2,12 +2,15 @@ version: '3.7'
 
 services:
   db:
-    image: mysql:latest
-    restart: "no"
-    environment: 
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "${MYSQL_DATABASE}"
-      MYSQL_USER: "${MYSQL_USER}"
-      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
-    ports: 
-      - "${MYSQL_PORT}:${MYSQL_PORT}"
+    image: postgres:latest
+    container_name: "portfolio-database"
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
