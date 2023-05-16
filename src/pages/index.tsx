@@ -10,8 +10,29 @@ import { Projetos } from '../components/Projetos'
 import { Sobre } from '../components/Sobre'
 import { Welcome } from '../components/Welcome'
 import { RepositoriesProvider } from '../hooks/useRepositories'
+import { api } from '../lib/api'
 
-export default function Home() {
+export async function getStaticProps() {
+  try {
+    const res = await api.get("/projects?populate=*")
+    const projects = res.data?.data
+    return {
+      props: {
+        projects
+      },
+      revalidate: 21240 // 6h
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      props: {
+        projects: []
+      }
+    }
+  }
+}
+
+export default function Home({ projects }) {
   return (
     <>
       <RepositoriesProvider>
@@ -24,7 +45,7 @@ export default function Home() {
         <Welcome />
         <Sobre />
         <Experiencia />
-        <Projetos />
+        <Projetos projects={projects} />
         <OutrosProjetos />
         <Footer />
       </RepositoriesProvider>
