@@ -1,12 +1,7 @@
 import styles from "./styles.module.sass"
-
-import { useEffect, useState } from "react"
-import ReactLoading from "react-loading"
-
 import { Container } from "../Container"
 import { Title } from "../Title"
 import { Projeto } from "./Projeto"
-import { api } from "../../lib/api"
 
 interface ProjetoProps {
   id?: number
@@ -32,28 +27,15 @@ interface ProjetoProps {
   }
 }
 
-export function Projetos() {
-  const [ loading, setLoading ] = useState(true)
-  const [ projetos, setProjetos ] = useState<ProjetoProps[]>([])
+interface IProjectsComponent {
+  projects: ProjetoProps[]
+}
+
+export function Projetos({projects}: IProjectsComponent) {
   let lastElement: {
     id: number
     align: "left" | "right"
   }
-
-  async function getProjetos() {
-    setLoading(true)
-    await api.get("/projects?populate=*")
-      .then(({data}) => {
-        setProjetos([])
-        setProjetos(data?.data)
-        setLoading(false)
-      })
-      .catch((error) => console.error(error))
-  }
-
-  useEffect(() => {
-    getProjetos()
-  }, [])
 
   return (
     <section id="projetos" className={styles.projetos}>
@@ -61,10 +43,7 @@ export function Projetos() {
         <Title>Projetos</Title>
         <ul className={styles.projetos__list}>
           {
-            (loading) ? (
-              <ReactLoading type="bubbles" color="#8257E5" />
-            ) :
-            projetos.map((projeto, index) => {
+            projects.map((projeto, index) => {
               if (index === 0) {
                 lastElement = {
                   id: index,
