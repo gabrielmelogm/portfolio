@@ -14,6 +14,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: site
     permissions:
       contents: read
       packages: write
@@ -52,6 +53,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    environment: site
     needs: build
     steps:
       - name: "Trigger Portainer Deploy"
