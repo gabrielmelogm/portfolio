@@ -20,7 +20,7 @@ export async function getStaticProps() {
       props: {
         projects
       },
-      revalidate: 21240 // 6h
+      // revalidate: 21240 // 6h
     }
   } catch (error) {
     console.error(error)

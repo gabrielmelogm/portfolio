@@ -1,0 +1,79 @@
+version: '3'
+
+services:
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: "portfolio-site"
+    ports:
+      - "${SITE_PORT}:${SITE_PORT}"
+    depends_on:
+      - manager
+    networks:
+      - portfolio
+    links:
+      - manager
+    volumes:
+      - ./:/home/node/app
+      - /app/.next
+      - node_modules:/home/node/app/node_modules
+    environment:
+      NEXT_PUBLIC_API_URL: "${NEXT_PUBLIC_API_URL}"
+      NEXT_PUBLIC_API_TOKEN: "${NEXT_PUBLIC_API_TOKEN}"
+  manager:
+    build:
+      context: ./cms
+      dockerfile: Dockerfile.dev
+    container_name: "portfolio-manager"
+    ports:
+      - "${PORT}:${PORT}"
+    networks:
+      - portfolio
+    links:
+      - db
+    depends_on:
+      - db
+    volumes:
+      - ./cms:/home/node/app
+      - cms_node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app
+    environment:
+      PORT: "${PORT}"
+      JWT_SECRET: "${JWT_SECRET}"
+      APP_KEYS: "${APP_KEYS}"
+      API_TOKEN_SALT: "${API_TOKEN_SALT}"
+      ADMIN_JWT_SECRET: "${ADMIN_JWT_SECRET}"
+      TRANSFER_TOKEN_SALT: "${TRANSFER_TOKEN_SALT}"
+      DATABASE_CLIENT: "${DATABASE_CLIENT}"
+      DATABASE_NAME: "${DATABASE_NAME}"
+      DATABASE_HOST: "${DATABASE_HOST}"
+      DATABASE_PORT: "${DATABASE_PORT}"
+      DATABASE_USERNAME: "${DATABASE_USERNAME}"
+      DATABASE_PASSWORD: "${DATABASE_PASSWORD}"
+      CLOUDINARY_NAME: "${CLOUDINARY_NAME}"
+      CLOUDINARY_KEY: "${CLOUDINARY_KEY}"
+      CLOUDINARY_SECRET: "${CLOUDINARY_SECRET}"
+
+  db:
+    image: postgres:latest
+    container_name: "portfolio-database"
+    ports:
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
+    networks:
+      - portfolio
+    environment:
+      POSTGRES_USER: "${DATABASE_USERNAME}"
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
+      POSTGRES_DB: "${DATABASE_NAME}"
+    volumes:
+      - db:/var/lib/postgresql/data
+
+networks:
+  portfolio:
+    driver: bridge
+
+volumes:
+  db:
+  node_modules:
+  cms_node_modules:
