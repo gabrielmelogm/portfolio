@@ -15,9 +15,9 @@ services:
     links:
       - manager
     volumes:
-      - ./:/home/node/app
+      - ./:/app
       - /app/.next
-      - node_modules:/home/node/app/node_modules
+      - node_modules:/app/node_modules
     environment:
       NEXT_PUBLIC_API_URL: "${NEXT_PUBLIC_API_URL}"
       NEXT_PUBLIC_API_TOKEN: "${NEXT_PUBLIC_API_TOKEN}"
@@ -51,9 +51,6 @@ services:
       DATABASE_PORT: "${DATABASE_PORT}"
       DATABASE_USERNAME: "${DATABASE_USERNAME}"
       DATABASE_PASSWORD: "${DATABASE_PASSWORD}"
-      CLOUDINARY_NAME: "${CLOUDINARY_NAME}"
-      CLOUDINARY_KEY: "${CLOUDINARY_KEY}"
-      CLOUDINARY_SECRET: "${CLOUDINARY_SECRET}"
 
   db:
     image: postgres:latest
@@ -75,5 +72,15 @@ networks:
 
 volumes:
   db:
-  node_modules:
   cms_node_modules:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./cms/node_modules
+  node_modules:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./node_modules

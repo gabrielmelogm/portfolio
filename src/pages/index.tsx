@@ -13,21 +13,26 @@ import { RepositoriesProvider } from '../hooks/useRepositories'
 import { api } from '../lib/api'
 
 export async function getStaticProps() {
-  try {
-    const res = await api.get("/projects?populate=*")
-    const projects = res.data?.data
-    return {
-      props: {
-        projects
-      },
-      // revalidate: 21240 // 6h
-    }
-  } catch (error) {
-    console.error(error)
-    return {
-      props: {
-        projects: []
-      }
+  // try {
+  //   const res = await api.get("/projects?populate=*")
+  //   const projects = res.data?.data
+  //   return {
+  //     props: {
+  //       projects
+  //     },
+  //     // revalidate: 21240 // 6h
+  //   }
+  // } catch (error) {
+  //   console.error(error)
+  //   return {
+  //     props: {
+  //       projects: []
+  //     }
+  //   }
+  // }
+  return {
+    props: {
+      projects: []
     }
   }
 }
