@@ -2,8 +2,6 @@ import styles from "./styles.module.sass"
 import { Container } from "../Container"
 import { Title } from "../Title"
 import { Projeto } from "./Projeto"
-import { api } from "../../lib/api"
-import { useEffect } from "react"
 
 interface ProjetoProps {
   id?: number
@@ -31,23 +29,14 @@ interface ProjetoProps {
 
 interface IProjectsComponent {
   projects: ProjetoProps[]
+  managerUrl: string
 }
 
-export function Projetos({projects}: IProjectsComponent) {
-  async function getProjects() {
-    const res = await api.get("/projects?populate=*")
-    const projects = res.data?.data
-    console.log(projects)
-  }
-
+export function Projetos({projects, managerUrl}: IProjectsComponent) {
   let lastElement: {
     id: number
     align: "left" | "right"
   }
-
-  useEffect(() => {
-    getProjects()
-  }, [])
 
   return (
     <section id="projetos" className={styles.projetos}>
@@ -70,7 +59,7 @@ export function Projetos({projects}: IProjectsComponent) {
                 }
               }
               return (
-                <Projeto key={projeto.id} projeto={projeto} align={lastElement.align } />
+                <Projeto key={projeto.id} projeto={projeto} align={lastElement.align } managerUrl={managerUrl} />
               )
             })
           }

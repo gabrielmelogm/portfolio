@@ -4,6 +4,7 @@ import parse from "html-react-parser"
 import Image from "next/image"
 
 export interface ProjetoProps {
+  managerUrl: string
   projeto: {
     id?: number
     attributes: {
@@ -30,7 +31,7 @@ export interface ProjetoProps {
   align?: "right" | "left"
 }
 
-export function Projeto({projeto, align, ...props}: ProjetoProps) {
+export function Projeto({projeto, align, managerUrl, ...props}: ProjetoProps) {
   return (
     <>
      {
@@ -42,7 +43,7 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               className={styles.projeto__image}
               width={projeto.attributes.thumb.data.attributes.width}
               height={projeto.attributes.thumb.data.attributes.height}
-              src={projeto.attributes.thumb.data.attributes.url}
+              src={`${managerUrl}${projeto.attributes.thumb.data.attributes.url}`}
               alt={projeto.attributes.thumb.data.attributes.alternativeText}
             />
           </div>
@@ -104,7 +105,7 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               layout="responsive"
               width={projeto.attributes.thumb.data.attributes.width}
               height={projeto.attributes.thumb.data.attributes.height}
-              src={projeto.attributes.thumb.data.attributes.url}
+              src={`${managerUrl}${projeto.attributes.thumb.data.attributes.url}`}
               alt={projeto.attributes.thumb.data.attributes.alternativeText}
             />
           </div>

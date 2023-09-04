@@ -13,31 +13,28 @@ import { RepositoriesProvider } from '../hooks/useRepositories'
 import { api } from '../lib/api'
 
 export async function getStaticProps() {
-  // try {
-  //   const res = await api.get("/projects?populate=*")
-  //   const projects = res.data?.data
-  //   return {
-  //     props: {
-  //       projects
-  //     },
-  //     // revalidate: 21240 // 6h
-  //   }
-  // } catch (error) {
-  //   console.error(error)
-  //   return {
-  //     props: {
-  //       projects: []
-  //     }
-  //   }
-  // }
-  return {
-    props: {
-      projects: []
+  try {
+    const res = await api.get("/projects?populate=*")
+    const projects = res.data?.data
+    const managerUrl = process.env.API_URL
+    return {
+      props: {
+        projects,
+        managerUrl
+      },
+      // revalidate: 21240 // 6h
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      props: {
+        projects: []
+      }
     }
   }
 }
 
-export default function Home({ projects }) {
+export default function Home({ projects, managerUrl }) {
   return (
     <>
       <RepositoriesProvider>
@@ -50,7 +47,7 @@ export default function Home({ projects }) {
         <Welcome />
         <Sobre />
         <Experiencia />
-        <Projetos projects={projects} />
+        <Projetos projects={projects} managerUrl={managerUrl} />
         <OutrosProjetos />
         <Footer />
       </RepositoriesProvider>
