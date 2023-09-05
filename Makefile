@@ -1,2 +1,3 @@
 setup-deploy-prod:
-	echo -e "API_URL=\"$$API_URL\"\nAPI_TOKEN=\"$$API_TOKEN\"" > .env.production
+	echo "API_URL=\"$$API_URL\"" > .env.production
+	echo "API_TOKEN=\"$$API_TOKEN\"" >> .env.production
