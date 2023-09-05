@@ -5,14 +5,13 @@ services:
     build:
       context: .
     container_name: "portfolio-site"
-    entrypoint: "./entrypoint.sh"
     ports:
       - "3000:3000"
     networks:
       - portfolio
     environment:
-      API_URL: "${API_URL}"
-      API_TOKEN: "${API_TOKEN}"
+      NEXT_PUBLIC_API_URL: "${NEXT_PUBLIC_API_URL}"
+      NEXT_PUBLIC_API_TOKEN: "${NEXT_PUBLIC_API_TOKEN}"
 networks:
   portfolio:
     driver: bridge

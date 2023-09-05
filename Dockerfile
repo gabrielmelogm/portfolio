@@ -31,18 +31,16 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # This will do the trick, use the corresponding env file for each environment.
 # COPY .env.example .env.production
-RUN yarn build
+RUN NEXT_PUBLIC_API_URL=PLACEHOLDER_NEXT_PUBLIC_API_URL NEXT_PUBLIC_API_TOKEN=PLACEHOLDER_NEXT_PUBLIC_API_TOKEN yarn build
 
 # 3. Production image, copy all the files and run next
 FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV API_URL=${API_URL}
 
 COPY --from=builder /app/node_modules ./node_modules
 
-COPY --from=builder /app/Makefile ./Makefile
 COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 RUN chmod +x entrypoint.sh
 
@@ -58,3 +56,7 @@ COPY --from=builder /app/.next/static ./.next/static
 EXPOSE 3000
 
 ENV PORT 3000
+
+ENTRYPOINT ["./entrypoint.sh"]
+
+CMD [ "node", "server.js" ]

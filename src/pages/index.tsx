@@ -11,12 +11,13 @@ import { Sobre } from '../components/Sobre'
 import { Welcome } from '../components/Welcome'
 import { RepositoriesProvider } from '../hooks/useRepositories'
 import { api } from '../lib/api'
+import { useEffect } from 'react'
 
 export async function getStaticProps() {
   try {
     const res = await api.get("/projects?populate=*")
     const projects = res.data?.data
-    const managerUrl = process.env.API_URL
+    const managerUrl = process.env.NEXT_PUBLIC_API_URL
     return {
       props: {
         projects,
@@ -35,6 +36,17 @@ export async function getStaticProps() {
 }
 
 export default function Home({ projects, managerUrl }) {
+  async function getProjects() {
+    console.log(`URL: ${process.env.NEXT_PUBLIC_API_URL}`)
+    console.log(`URL: ${process.env.NEXT_PUBLIC_API_TOKEN}`)
+    const response = await api.get('/projects')
+    console.log(response.data)
+  }
+
+  useEffect(() => {
+    getProjects()
+  }, [])
+
   return (
     <>
       <RepositoriesProvider>
