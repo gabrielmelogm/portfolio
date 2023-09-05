@@ -1,2 +1,2 @@
 #!/bin/bash
-make setup-deploy-prod && node server.js
+make setup-deploy-prod && yarn start

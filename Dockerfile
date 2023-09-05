@@ -40,6 +40,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV API_URL=${API_URL}
 
+COPY --from=builder /app/node_modules ./node_modules
+
 COPY --from=builder /app/Makefile ./Makefile
 COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 RUN chmod +x entrypoint.sh
