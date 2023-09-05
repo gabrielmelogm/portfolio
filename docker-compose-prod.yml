@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  site:
+    build:
+      context: .
+    container_name: "portfolio-site"
+    entrypoint: "./entrypoint.sh"
+    ports:
+      - "3000:3000"
+    networks:
+      - portfolio
+    environment:
+      API_URL: "${API_URL}"
+      API_TOKEN: "${API_TOKEN}"
+networks:
+  portfolio:
+    driver: bridge
