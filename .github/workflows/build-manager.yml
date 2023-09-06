@@ -3,7 +3,7 @@ name: "[Manager] Docker Build & Publish"
 on:
   push:
     paths: ["cms/**"]
-    branches: [ "feat/manager" ]
+    branches: [ "main" ]
     tags: [ 'v*.*.*' ]
 
 env:
