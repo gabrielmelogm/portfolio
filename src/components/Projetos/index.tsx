@@ -29,10 +29,9 @@ interface ProjetoProps {
 
 interface IProjectsComponent {
   projects: ProjetoProps[]
-  managerUrl: string
 }
 
-export function Projetos({projects, managerUrl}: IProjectsComponent) {
+export function Projetos({projects}: IProjectsComponent) {
   let lastElement: {
     id: number
     align: "left" | "right"
@@ -59,7 +58,7 @@ export function Projetos({projects, managerUrl}: IProjectsComponent) {
                 }
               }
               return (
-                <Projeto key={projeto.id} projeto={projeto} align={lastElement.align } managerUrl={managerUrl} />
+                <Projeto key={projeto.id} projeto={projeto} align={lastElement.align } />
               )
             })
           }

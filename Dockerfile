@@ -1,16 +1,7 @@
-FROM node:18 AS base
+FROM node:18-alpine AS base
 
 # 1. Install dependencies only when needed
 FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apt-get -y update --fix-missing
-RUN apt-get upgrade -y
-
-# Install useful tools
-RUN apt-get -y install apt-utils nano wget dialog
-
-# Install important libraries
-RUN apt-get -y install --fix-missing apt-utils build-essential git curl libcurl4 zip openssl 
 
 WORKDIR /app
 
@@ -30,7 +21,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # This will do the trick, use the corresponding env file for each environment.
-# COPY .env.example .env.production
 RUN NEXT_PUBLIC_API_URL=PLACEHOLDER_NEXT_PUBLIC_API_URL NEXT_PUBLIC_API_TOKEN=PLACEHOLDER_NEXT_PUBLIC_API_TOKEN yarn build
 
 # 3. Production image, copy all the files and run next
@@ -38,8 +28,6 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-
-COPY --from=builder /app/node_modules ./node_modules
 
 COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 RUN chmod +x entrypoint.sh
