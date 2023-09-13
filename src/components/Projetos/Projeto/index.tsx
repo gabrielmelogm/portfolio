@@ -36,6 +36,8 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
      {
       align === "right" ? (
         <li className={styles.projeto__item}>
+          <h3 className={`${styles.projeto__category} ${styles.projeto__category_mobile}`}>{projeto.attributes.category}</h3>
+          <h2 className={`${styles.projeto__title} ${styles.projeto__title_mobile}`}>{projeto.attributes.title}</h2>
           <div className={styles.projeto__thumb}>
             <Image
               layout="responsive"
@@ -47,7 +49,7 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
             />
           </div>
           <div className={styles.projeto__info}>
-            <h2 className={styles.projeto__category}>{projeto.attributes.category}</h2>
+            <h3 className={styles.projeto__category}>{projeto.attributes.category}</h3>
             <h2 className={styles.projeto__title}>{projeto.attributes.title}</h2>
             <div className={styles.projeto__description}>
               <p className={styles.projeto__text}>{parse(projeto.attributes.description)}</p>
@@ -74,8 +76,20 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
       ) :
       (
         <li className={styles.projeto__item}>
+          <h3 className={`${styles.projeto__category} ${styles.projeto__category_mobile}`}>{projeto.attributes.category}</h3>
+          <h2 className={`${styles.projeto__title} ${styles.projeto__title_mobile}`}>{projeto.attributes.title}</h2>
+          <div className={`${styles.projeto__thumb} ${styles.projeto__thumb_mobile}`}>
+            <Image
+              className={styles.projeto__image}
+              layout="responsive"
+              width={projeto.attributes.thumb.data.attributes.width}
+              height={projeto.attributes.thumb.data.attributes.height}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${projeto.attributes.thumb.data.attributes.url}`}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+            />
+          </div>
           <div className={`${styles.projeto__info} ${styles.info__left}`}>
-            <h2 className={styles.projeto__category}>{projeto.attributes.category}</h2>
+            <h3 className={styles.projeto__category}>{projeto.attributes.category}</h3>
             <h2 className={styles.projeto__title}>{projeto.attributes.title}</h2>
             <div className={`${styles.projeto__description} ${styles.description__left}`}>
               <p className={styles.projeto__text}>{parse(projeto.attributes.description)}</p>
@@ -98,7 +112,7 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               </a>
             </div>
           </div>
-          <div className={styles.projeto__thumb}>
+          <div className={`${styles.projeto__thumb} ${styles.projeto__thumb_left}`}>
             <Image
               className={styles.projeto__image}
               layout="responsive"

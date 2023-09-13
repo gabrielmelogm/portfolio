@@ -13,7 +13,7 @@ import { Sobre } from '../components/Sobre'
 import { Welcome } from '../components/Welcome'
 import { RepositoriesProvider } from '../hooks/useRepositories'
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
   try {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/projects?populate=*`, {
       maxBodyLength: Infinity,
@@ -24,7 +24,7 @@ export async function getServerSideProps() {
     return {
       props: {
         projects: res.data?.data
-      }
+      },
     }
     
   } catch (error) {

@@ -5,6 +5,11 @@
   display: grid
   grid-template-columns: repeat(2, 1fr)
 
+.projeto__thumb_mobile,
+.projeto__title_mobile,
+.projeto__category_mobile
+  display: none
+
 .projeto__image
   width: 870px
   height: 490px
@@ -93,3 +98,43 @@
 
 .link__left
   justify-content: flex-end
+
+@media (max-width: $tablet-large)
+  .projeto__title,
+  .projeto__category,
+  .projeto__thumb_left
+    display: none
+
+  .projeto__thumb_mobile
+    display: block
+  
+  .projeto__title_mobile,
+  .projeto__category_mobile
+    display: block
+    text-align: center
+    margin-bottom: 0.5rem
+
+  .projeto__item
+    display: flex
+    flex-direction: column
+
+  .projeto__info
+    text-align: center
+
+  .projeto__description
+    margin-left: unset
+    padding: 1rem
+
+  .description__left
+    margin-right: unset
+
+  .stacks__list
+    align-self: center
+
+  .projeto__link
+    align-self: center
+
+  .stacks__list
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr))
+    align-self: unset

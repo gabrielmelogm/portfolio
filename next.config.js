@@ -4,7 +4,7 @@ const nextConfig = {
   output: 'standalone',
   swcMinify: true,
   images: {
-    domains: ["github.com", "avatars.githubusercontent.com", "res.cloudinary.com", "manager.gabriel-melo.tech"],
+    domains: ["localhost", "manager", "github.com", "avatars.githubusercontent.com", "manager.gabriel-melo.tech"],
   },
 };
 
