@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Head from 'next/head'
 
 import styles from '../../styles/Home.module.sass'
 import { Email } from '../components/Contato/Email'
@@ -40,9 +39,6 @@ export default function Home({ projects }) {
   return (
     <>
       <RepositoriesProvider>
-        <Head>
-          <title>Gabriel Melo | Portfólio</title>
-        </Head>
         <Header />
         <SocialMedias />
         <Email />

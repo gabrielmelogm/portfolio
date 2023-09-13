@@ -45,7 +45,7 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               width={projeto.attributes.thumb.data.attributes.width}
               height={projeto.attributes.thumb.data.attributes.height}
               src={`${process.env.NEXT_PUBLIC_API_URL}${projeto.attributes.thumb.data.attributes.url}`}
-              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText || projeto.attributes.title}
             />
           </div>
           <div className={styles.projeto__info}>
@@ -85,7 +85,7 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               width={projeto.attributes.thumb.data.attributes.width}
               height={projeto.attributes.thumb.data.attributes.height}
               src={`${process.env.NEXT_PUBLIC_API_URL}${projeto.attributes.thumb.data.attributes.url}`}
-              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText || projeto.attributes.title}
             />
           </div>
           <div className={`${styles.projeto__info} ${styles.info__left}`}>
@@ -119,7 +119,7 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
               width={projeto.attributes.thumb.data.attributes.width}
               height={projeto.attributes.thumb.data.attributes.height}
               src={`${process.env.NEXT_PUBLIC_API_URL}${projeto.attributes.thumb.data.attributes.url}`}
-              alt={projeto.attributes.thumb.data.attributes.alternativeText}
+              alt={projeto.attributes.thumb.data.attributes.alternativeText || projeto.attributes.title}
             />
           </div>
         </li>
