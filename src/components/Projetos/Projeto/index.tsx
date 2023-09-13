@@ -1,7 +1,9 @@
-import { BsGithub, BsLink45Deg } from "react-icons/bs"
-import styles from "./styles.module.sass"
-import parse from "html-react-parser"
 import Image from "next/image"
+
+import styles from "./styles.module.sass"
+
+import { BsGithub, BsLink45Deg } from "react-icons/bs"
+import { Description } from "../../Description"
 
 export interface ProjetoProps {
   projeto: {
@@ -30,7 +32,7 @@ export interface ProjetoProps {
   align?: "right" | "left"
 }
 
-export function Projeto({projeto, align, ...props}: ProjetoProps) {
+export function Projeto({projeto, align}: ProjetoProps) {
   return (
     <li className={styles.projeto__item}>
       <h3 className={`${styles.projeto__category} ${styles.projeto__category_mobile}`}>{projeto.attributes.category}</h3>
@@ -44,7 +46,9 @@ export function Projeto({projeto, align, ...props}: ProjetoProps) {
         <h3 className={styles.projeto__category}>{projeto.attributes.category}</h3>
         <h2 className={styles.projeto__title}>{projeto.attributes.title}</h2>
         <div className={`${styles.projeto__description} ${(align === "left") && styles.description__left}`}>
-          <p className={styles.projeto__text}>{parse(projeto.attributes.description)}</p>
+          <p className={styles.projeto__text}>
+            <Description text={projeto.attributes.description} />
+          </p>
         </div>
         <Stacks stacks={projeto.attributes.stacks} align={align} />
         <div className={`${styles.projeto__link} ${(align === "left") && styles.link__left}`}>
