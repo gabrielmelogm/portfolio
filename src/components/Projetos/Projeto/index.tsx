@@ -1,9 +1,9 @@
 import Image from "next/image"
+import parse from "html-react-parser"
 
 import styles from "./styles.module.sass"
 
 import { BsGithub, BsLink45Deg } from "react-icons/bs"
-import { Description } from "../../Description"
 
 export interface ProjetoProps {
   projeto: {
@@ -46,9 +46,7 @@ export function Projeto({projeto, align}: ProjetoProps) {
         <h3 className={styles.projeto__category}>{projeto.attributes.category}</h3>
         <h2 className={styles.projeto__title}>{projeto.attributes.title}</h2>
         <div className={`${styles.projeto__description} ${(align === "left") && styles.description__left}`}>
-          <p className={styles.projeto__text}>
-            <Description text={projeto.attributes.description} />
-          </p>
+          {parse(projeto.attributes.description)}
         </div>
         <Stacks stacks={projeto.attributes.stacks} align={align} />
         <div className={`${styles.projeto__link} ${(align === "left") && styles.link__left}`}>
