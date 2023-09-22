@@ -6,13 +6,31 @@ import styles from "./styles.module.sass"
 import { HiOutlineFolder } from "react-icons/hi"
 import { BsGithub, BsLink45Deg } from "react-icons/bs";
 import { useState } from "react";
-import { useRepositories } from "../../hooks/useRepositories";
 
-export function OutrosProjetos() {
-  const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
-  const { repositories } = useRepositories()
-  const filteredRepositories = repositories.filter(filterDescription)
+interface RepositoriesProps {
+  name: string
+  description: string
+  language: string
+  homepage: string
+  html_url: string
+  topics: string[]
+}
+
+export async function getRepositories(): Promise<RepositoriesProps[] | []> {
+  try {
+    const repositories = await axios.get(`https://api.github.com/users/gabrielmelogm/repos`)
+    return repositories.data
+  } catch (error) {
+    return []    
+  }
+}
+
+export function OutrosProjetos({ repositories }: { repositories: RepositoriesProps[] }) {
   const [ maxRepos, setMaxRepos ] = useState(6)
+
+  const filteredRepositories = repositories.filter(filterDescription)
+  
+  const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
   
   function filterDescription(repo) {
     if (repo.description) return repo

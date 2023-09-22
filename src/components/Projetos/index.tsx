@@ -1,4 +1,6 @@
+import axios from "axios"
 import styles from "./styles.module.sass"
+
 import { Container } from "../Container"
 import { Title } from "../Title"
 import { Projeto } from "./Projeto"
@@ -30,12 +32,26 @@ interface ProjetoProps {
 interface IProjectsComponent {
   projects: ProjetoProps[]
 }
+export async function getProjects(): Promise<ProjetoProps[] | []> {
+  try {
+    const projects = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/projects?populate=*`, {
+      maxBodyLength: Infinity,
+      headers: {
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+      }
+    })
+    return projects.data?.data
+  } catch (error) {
+    return []
+  }
+}
 
 export function Projetos({projects}: IProjectsComponent) {
   let lastElement: {
     id: number
     align: "left" | "right"
   }
+
 
   return (
     <section id="projetos" className={styles.projetos}>
