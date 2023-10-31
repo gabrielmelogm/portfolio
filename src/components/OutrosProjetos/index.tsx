@@ -11,7 +11,7 @@ interface RepositoriesProps {
   name: string
   description: string
   language: string
-  homepage: string
+  homepage: string | null
   html_url: string
   topics: string[]
 }
@@ -28,7 +28,7 @@ export async function getRepositories(): Promise<RepositoriesProps[] | []> {
 export function OutrosProjetos({ repositories }: { repositories: RepositoriesProps[] }) {
   const [ maxRepos, setMaxRepos ] = useState(6)
 
-  const filteredRepositories = repositories.filter(filterDescription)
+  const filteredRepositories: RepositoriesProps[] = repositories.filter(filterDescription)
   
   const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
   
@@ -43,6 +43,7 @@ export function OutrosProjetos({ repositories }: { repositories: RepositoriesPro
         <ul className={styles.projetos__list}>
           {
             filteredRepositories.map((repository, index) => {
+              const homepage = (repository.homepage) ? String(repository.homepage) : ''
               if (index <= maxRepos - 1) {
                 return (
                   <li key={repository.name} className={styles.projetos__item}>
@@ -52,8 +53,8 @@ export function OutrosProjetos({ repositories }: { repositories: RepositoriesPro
                         <a className={styles.projeto__repositorio} href={repository.html_url} target="_blank" rel="noreferrer">
                           <BsGithub />
                         </a>
-                        <a className={`${repository.homepage ? styles.projeto__site : styles.site__disabled}`}
-                        href={repository.homepage.includes("https") ? `${repository.homepage}` : `https://${repository.homepage}`} target="_blank" rel="noreferrer">
+                        <a className={`${homepage ? styles.projeto__site : styles.site__disabled}`}
+                        href={homepage.includes("https") ? `${homepage}` : `https://${homepage}`} target="_blank" rel="noreferrer">
                           <BsLink45Deg />
                         </a>
                       </div>
