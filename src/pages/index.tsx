@@ -17,9 +17,7 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
       'public, s-maxage=21600000, stale-while-revalidate=600' // Revalidate in 6 hours
     )
 
-    const projects = await getProjects()
-
-    const repositories = await getRepositories()
+    const [ projects, repositories ] = await Promise.all([getProjects(), getRepositories()])
 
     return {
       props: {
