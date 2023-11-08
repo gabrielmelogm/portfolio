@@ -2,7 +2,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import styles from '../../styles/Home.module.sass'
 import { Email } from '../components/Contato/Email'
 import { SocialMedias } from '../components/Contato/SocialMedias'
-import { Experiencia } from '../components/Experiencia'
+import { Experiencia, getExperiences } from '../components/Experiencia'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { OutrosProjetos, getRepositories } from '../components/OutrosProjetos'
@@ -17,12 +17,13 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
       'public, s-maxage=21600000, stale-while-revalidate=600' // Revalidate in 6 hours
     )
 
-    const [ projects, repositories ] = await Promise.all([getProjects(), getRepositories()])
+    const [ projects, repositories, experiences ] = await Promise.all([getProjects(), getRepositories(), getExperiences()])
 
     return {
       props: {
         projects,
-        repositories
+        repositories,
+        experiences
       },
     }
     
@@ -30,13 +31,14 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
     return {
       props: {
         projects: [],
-        repositories: []
+        repositories: [],
+        experiences: []
       },
     }
   }
 }
 
-export default function Home({ projects, repositories }) {
+export default function Home({ projects, repositories, experiences }) {
   return (
     <>
       <Header />
@@ -44,7 +46,7 @@ export default function Home({ projects, repositories }) {
       <Email />
       <Welcome />
       <Sobre />
-      <Experiencia />
+      <Experiencia experiences={experiences} />
       <Projetos projects={projects} />
       <OutrosProjetos repositories={repositories} />
       <Footer />
