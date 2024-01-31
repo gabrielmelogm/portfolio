@@ -1,29 +1,12 @@
 import { Container } from "../Container";
 import { Title } from "../Title";
-import axios from "axios"
+
 import styles from "./styles.module.sass"
 
 import { HiOutlineFolder } from "react-icons/hi"
 import { BsGithub, BsLink45Deg } from "react-icons/bs";
 import { useState } from "react";
-
-interface RepositoriesProps {
-  name: string
-  description: string
-  language: string
-  homepage: string | null
-  html_url: string
-  topics: string[]
-}
-
-export async function getRepositories(): Promise<RepositoriesProps[] | []> {
-  try {
-    const repositories = await axios.get(`https://api.github.com/users/gabrielmelogm/repos`)
-    return repositories.data
-  } catch (error) {
-    return []    
-  }
-}
+import { RepositoriesProps } from "../../services/repositories.service";
 
 export function OutrosProjetos({ repositories }: { repositories: RepositoriesProps[] }) {
   const [ maxRepos, setMaxRepos ] = useState(6)
