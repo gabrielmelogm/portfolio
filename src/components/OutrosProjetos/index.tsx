@@ -19,6 +19,8 @@ export function OutrosProjetos({ repositories }: { repositories: RepositoriesPro
     if (repo.description) return repo
   }
 
+  if (repositories.length === 0) return <></>
+
   return (
     <section className={styles.outros__projetos}>
       <Container>

@@ -11,8 +11,15 @@ export interface RepositoriesProps {
 
 export async function getRepositories(): Promise<RepositoriesProps[] | []> {
   try {
-    const repositories = await axios.get(`https://api.github.com/users/gabrielmelogm/repos`)
-    return repositories.data
+    const response = await axios.get(`https://api.github.com/users/gabrielmelogm/repos`)
+
+    const order = response.data.sort((a, b) => {
+      return Number(new Date(a.updated_at)) - Number(new Date(b.updated_at))
+    })
+
+    const repositories = order.reverse()
+
+    return repositories
   } catch (error) {
     return []    
   }
