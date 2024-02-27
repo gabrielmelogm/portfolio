@@ -1,15 +1,43 @@
-import axios from "axios"
 import { ProjetoProps } from "../components/Projetos/Projeto"
+import { gql } from "@apollo/client"
+import { client } from "../lib/graphql"
 
 export async function getProjects(): Promise<ProjetoProps[] | []> {
   try {
-    const projects = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/projects?populate=*`, {
-      maxBodyLength: Infinity,
-      headers: {
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+    const GET_PROJECTS = gql`
+      query {
+        projects {
+          data {
+            attributes {
+              title,
+              category,
+              description,
+              stacks,
+              link,
+              repositoryUrl,
+              thumb {
+                data {
+                  attributes {
+                    url,
+                    alternativeText,
+                    width,
+                    height
+                  }
+                }
+              }
+            }
+          }
+        }
       }
+    `
+
+    const { data } = await client.query({
+      query: GET_PROJECTS
     })
-    return projects.data?.data
+
+    const projects = data.projects.data
+
+    return projects
   } catch (error) {
     return []
   }
