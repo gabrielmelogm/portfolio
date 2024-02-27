@@ -12,6 +12,7 @@ import { Welcome } from '../components/Welcome'
 import { getProjects } from '../services/projects.service'
 import { getRepositories } from '../services/repositories.service'
 import { getExperiences } from '../services/experiences.service'
+import { useEffect } from 'react'
 
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   try {
@@ -42,6 +43,16 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
 }
 
 export default function Home({ projects, repositories, experiences }) {
+
+  async function getData() {
+    const response = await getExperiences()
+    console.log(response)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
     <>
       <Header />

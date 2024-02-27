@@ -1,4 +1,5 @@
-import axios from "axios"
+import { gql } from "@apollo/client"
+import { client } from "../lib/graphql"
 
 export interface IExperiencesProps {
   id?: number
@@ -26,14 +27,40 @@ export interface IExperiencesProps {
 
 export async function getExperiences(): Promise<IExperiencesProps[]> {
   try {
-    const experiences = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/experiences?populate=*`, {
-      maxBodyLength: Infinity,
-      headers: {
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+    const GET_EXPERIENCES = gql`
+      query {
+        experiences {
+          data {
+            attributes {
+              name,
+              kind,
+              current,
+              description,
+              date_start,
+              date_finish,
+              profile {
+                data {
+                  attributes {
+                    url,
+                    alternativeText,
+                    width,
+                    height
+                  }
+                }
+              }
+            }
+          }
+        }
       }
+    `
+
+    const { data } = await client.query({
+      query: GET_EXPERIENCES
     })
-    
-    return experiences.data?.data.reverse()
+
+    const experiences = data.experiences.data
+
+    return experiences
   } catch (error) {
     return []
   }
