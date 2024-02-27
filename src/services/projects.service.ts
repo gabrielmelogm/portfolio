@@ -8,6 +8,7 @@ export async function getProjects(): Promise<ProjetoProps[] | []> {
       query {
         projects {
           data {
+            id,
             attributes {
               title,
               category,
