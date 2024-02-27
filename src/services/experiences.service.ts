@@ -29,7 +29,7 @@ export async function getExperiences(): Promise<IExperiencesProps[]> {
   try {
     const GET_EXPERIENCES = gql`
       query {
-        experiences {
+        experiences(sort: "date_start:desc") {
           data {
             attributes {
               name,
@@ -58,7 +58,7 @@ export async function getExperiences(): Promise<IExperiencesProps[]> {
       query: GET_EXPERIENCES
     })
 
-    const experiences = data.experiences.data.reverse()
+    const experiences = data.experiences.data
 
     return experiences
   } catch (error) {
