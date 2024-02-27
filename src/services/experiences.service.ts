@@ -58,7 +58,7 @@ export async function getExperiences(): Promise<IExperiencesProps[]> {
       query: GET_EXPERIENCES
     })
 
-    const experiences = data.experiences.data
+    const experiences = data.experiences.data.reverse()
 
     return experiences
   } catch (error) {
