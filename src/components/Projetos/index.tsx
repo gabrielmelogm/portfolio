@@ -3,6 +3,7 @@ import styles from "./styles.module.sass"
 import { Container } from "../Container"
 import { Title } from "../Title"
 import { Projeto } from "./Projeto"
+import { getProjects } from "../../services/projects.service"
 
 interface ProjetoProps {
   id?: number
@@ -28,16 +29,13 @@ interface ProjetoProps {
   }
 }
 
-interface IProjectsComponent {
-  projects: ProjetoProps[]
-}
-
-export function Projetos({projects}: IProjectsComponent) {
+export async function Projetos() {
   let lastElement: {
     id: number
     align: "left" | "right"
   }
 
+  const projects = await getProjects()
 
   return (
     <section id="projetos" className={styles.projetos}>

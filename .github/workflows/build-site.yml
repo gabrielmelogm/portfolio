@@ -52,6 +52,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-args: |
+            API_URL=${{ secrets.API_URL }}
+            API_TOKEN=${{ secrets.API_TOKEN }}
 
   deploy:
     runs-on: ubuntu-latest
