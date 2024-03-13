@@ -1,6 +1,6 @@
 'use client'
 
-import styles from "../Experiencia/styles.module.sass"
+import styles from "../Experience/styles.module.sass"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination } from "swiper/modules"

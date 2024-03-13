@@ -1,13 +1,13 @@
-import { Email } from "../components/Contato/Email";
-import { SocialMedias } from "../components/Contato/SocialMedias";
-import { Experiencia } from "../components/Experiencia";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import { OutrosProjetos } from "../components/OutrosProjetos";
-import { Projetos } from "../components/Projetos";
-import { Sobre } from "../components/Sobre";
+import { About } from "../components/About";
 import { Welcome } from "../components/Welcome";
 import { getRepositories } from "../services/repositories.service";
+import { SocialMedias } from "../components/Contact/SocialMedias";
+import { Email } from "../components/Contact/Email";
+import { Experience } from "../components/Experience";
+import { Projects } from "../components/Projects";
+import { Repositories } from "../components/Repositories";
 
 export default async function Home() {
   const repositories = await getRepositories()
@@ -18,10 +18,10 @@ export default async function Home() {
       <SocialMedias />
       <Email />
       <Welcome />
-      <Sobre />
-      <Experiencia />
-      <Projetos />
-      <OutrosProjetos repositories={repositories} />
+      <About />
+      <Experience />
+      <Projects />
+      <Repositories repositories={repositories} />
       <Footer />
     </main>
   )

@@ -5,8 +5,8 @@ import styles from "./styles.module.sass"
 
 import { BsGithub, BsLink45Deg } from "react-icons/bs"
 
-export interface ProjetoProps {
-  projeto: {
+export interface ProjectProps {
+  project: {
     id?: number
     attributes: {
       title: string
@@ -32,35 +32,35 @@ export interface ProjetoProps {
   align?: "right" | "left"
 }
 
-export function Projeto({projeto, align}: ProjetoProps) {
+export function Project({project, align}: ProjectProps) {
   return (
     <li className={styles.projeto__item}>
-      <h3 className={`${styles.projeto__category} ${styles.projeto__category_mobile}`}>{projeto.attributes.category}</h3>
-      <h2 className={`${styles.projeto__title} ${styles.projeto__title_mobile}`}>{projeto.attributes.title}</h2>
-      <Thumb projeto={projeto} align={align} mobile/>
+      <h3 className={`${styles.projeto__category} ${styles.projeto__category_mobile}`}>{project.attributes.category}</h3>
+      <h2 className={`${styles.projeto__title} ${styles.projeto__title_mobile}`}>{project.attributes.title}</h2>
+      <Thumb projeto={project} align={align} mobile/>
       {
         (align === "right") ?
-        (<Thumb projeto={projeto} align={align} />) : (<></>)
+        (<Thumb projeto={project} align={align} />) : (<></>)
       }
       <div className={`${styles.projeto__info} ${(align === "left") && styles.info__left}`}>
-        <h3 className={styles.projeto__category}>{projeto.attributes.category}</h3>
-        <h2 className={styles.projeto__title}>{projeto.attributes.title}</h2>
+        <h3 className={styles.projeto__category}>{project.attributes.category}</h3>
+        <h2 className={styles.projeto__title}>{project.attributes.title}</h2>
         <div className={`${styles.projeto__description} ${(align === "left") && styles.description__left}`}>
-          {parse(projeto.attributes.description)}
+          {parse(project.attributes.description)}
         </div>
-        <Stacks stacks={projeto.attributes.stacks} align={align} />
+        <Stacks stacks={project.attributes.stacks} align={align} />
         <div className={`${styles.projeto__link} ${(align === "left") && styles.link__left}`}>
-          <a className={styles.projeto__site} href={projeto.attributes.link} target="_blank" rel="noreferrer">
+          <a className={styles.projeto__site} href={project.attributes.link} target="_blank" rel="noreferrer">
             <BsLink45Deg />
           </a>
-          <a className={styles.projeto__repositorio} href={projeto.attributes.repositoryUrl} target="_blank" rel="noreferrer">
+          <a className={styles.projeto__repositorio} href={project.attributes.repositoryUrl} target="_blank" rel="noreferrer">
             <BsGithub />
           </a>
         </div>
       </div>
       {
         (align === "left") ?
-        (<Thumb projeto={projeto} align={align} />) : (<></>)
+        (<Thumb projeto={project} align={align} />) : (<></>)
       }
     </li>
   )

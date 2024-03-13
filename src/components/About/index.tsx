@@ -7,7 +7,7 @@ import { GrNode, GrMysql } from "react-icons/gr"
 import { FaHtml5, FaCss3Alt, FaSass, FaPhp } from "react-icons/fa"
 import styles from "./styles.module.sass"
 
-export function Sobre() {
+export function About() {
   const technologies = [
     {
       icon: <SiJavascript />

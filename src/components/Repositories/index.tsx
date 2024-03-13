@@ -17,7 +17,7 @@ export interface RepositoriesProps {
   topics: string[]
 }
 
-export function OutrosProjetos({ repositories }) {
+export function Repositories({ repositories }) {
   const [ maxRepos, setMaxRepos ] = useState(6)
 
   const filteredRepositories: RepositoriesProps[] = repositories.filter(filterDescription)

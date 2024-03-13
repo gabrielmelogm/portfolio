@@ -2,34 +2,10 @@ import styles from "./styles.module.sass"
 
 import { Container } from "../Container"
 import { Title } from "../Title"
-import { Projeto } from "./Projeto"
+import { Project } from "./Project"
 import { getProjects } from "../../services/projects.service"
 
-interface ProjetoProps {
-  id?: number
-  attributes: {
-    title: string
-    category: string
-    description: string
-    stacks: string
-    repositoryUrl: string
-    link: string
-    thumb: {
-      data: {
-        attributes: {
-          name: string
-          alternativeText?: string
-          caption?: string
-          width: number
-          height: number
-          url: string
-        }
-      }
-    }
-  }
-}
-
-export async function Projetos() {
+export async function Projects() {
   let lastElement: {
     id: number
     align: "left" | "right"
@@ -43,7 +19,7 @@ export async function Projetos() {
         <Title>Projetos</Title>
         <ul className={styles.projetos__list}>
           {
-            projects.map((projeto, index) => {
+            projects.map((project, index) => {
               if (index === 0) {
                 lastElement = {
                   id: index,
@@ -58,7 +34,7 @@ export async function Projetos() {
                 }
               }
               return (
-                <Projeto key={projeto.id} projeto={projeto} align={lastElement.align } />
+                <Project key={project.id} project={project} align={lastElement.align } />
               )
             })
           }

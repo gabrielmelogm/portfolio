@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import { getExperiences } from "../../services/experiences.service"
 import { Slide } from "../Slide";
 
-export async function Experiencia() {
+export async function Experience() {
   const experiences = await getExperiences()
   
   return (
