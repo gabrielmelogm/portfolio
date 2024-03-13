@@ -82,7 +82,7 @@ function Thumb({ projeto, align="right", mobile }: IThumbProps) {
         layout="responsive"
         width={projeto.attributes.thumb.data.attributes.width}
         height={projeto.attributes.thumb.data.attributes.height}
-        src={`${process.env.NEXT_PUBLIC_API_URL}${projeto.attributes.thumb.data.attributes.url}`}
+        src={`${process.env.API_URL}${projeto.attributes.thumb.data.attributes.url}`}
         alt={projeto.attributes.thumb.data.attributes.alternativeText || projeto.attributes.title}
       />
     </div>

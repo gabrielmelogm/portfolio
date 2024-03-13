@@ -1,14 +1,23 @@
-import { Container } from "../Container";
-import { Title } from "../Title";
+'use client'
 
 import styles from "./styles.module.sass"
 
-import { HiOutlineFolder } from "react-icons/hi"
+import { useEffect, useState } from "react";
+import { Container } from "../Container";
+import { Title } from "../Title";
+import { HiOutlineFolder } from "react-icons/hi";
 import { BsGithub, BsLink45Deg } from "react-icons/bs";
-import { useState } from "react";
-import { RepositoriesProps } from "../../services/repositories.service";
 
-export function OutrosProjetos({ repositories }: { repositories: RepositoriesProps[] }) {
+export interface RepositoriesProps {
+  name: string
+  description: string
+  language: string
+  homepage: string | null
+  html_url: string
+  topics: string[]
+}
+
+export function OutrosProjetos({ repositories }) {
   const [ maxRepos, setMaxRepos ] = useState(6)
 
   const filteredRepositories: RepositoriesProps[] = repositories.filter(filterDescription)

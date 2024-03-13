@@ -2,7 +2,7 @@
 > An quick presentation about me
 
 ## Stacks 🛠️
-- Next 12
+- Next 14
 - Strapi
 - Graphql
 

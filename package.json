@@ -1,9 +1,9 @@
 {
   "name": "portfolio",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
   "engines": {
-    "node": ">=18.17.0"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -17,15 +17,13 @@
     "graphql": "^16.8.1",
     "html-react-parser": "^3.0.6",
     "moment": "^2.29.4",
-    "next": "12.3.1",
+    "next": "^14.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.0",
     "react-icons": "^4.7.1",
-    "react-loading": "^2.0.3",
     "react-simple-wysiwyg": "^2.1.4",
-    "sharp": "^0.33.2",
-    "swiper": "^8.4.4"
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/node": "20.6.0",
