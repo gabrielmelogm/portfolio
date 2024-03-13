@@ -6,6 +6,7 @@ import { GrNode, GrMysql } from "react-icons/gr"
 import { FaHtml5, FaCss3Alt, FaSass, FaPhp } from "react-icons/fa"
 import { Container } from "../../Container"
 import { Title } from "../../Title"
+import Image from "next/image"
 
 export function About() {
   const technologies = [
@@ -52,7 +53,7 @@ export function About() {
             <p>Eu iniciei minha carreira como <strong>desenvolvedor</strong> em <strong>julho de 2020</strong>, em uma start-up software house focada em logística portuária, desde então eu venho passando por algumas empresas aprendendo diversas tecnologias, e acumulando projetos bem legais, entre eles um sistema de controle de <strong>descarga de navios</strong>, <strong>sistema de chamados</strong>, <strong>hot sites</strong>, entre outros projetos <strong>freelancers</strong> como uma <strong>landing page</strong> parar demonstração de produtos e um <strong>aplicativo de agendamento de bikes</strong>.</p>
           </div>
           <div className={styles.perfil__content}>
-            <img className={styles.perfil__image} src={`https://github.com/gabrielmelogm.png`} alt="Foto de perfil" />
+            <Image className={styles.perfil__image} src={`https://github.com/gabrielmelogm.png`} alt="Foto de perfil" width={400} height={400} />
           </div>
         </div>
 
