@@ -1,7 +1,8 @@
-import { Container } from "../Container"
-import Emoji from "../../assets/welcome-emoji.svg"
+import Emoji from "../../../assets/welcome-emoji.svg"
 import styles from "./styles.module.sass"
 import Image from "next/image"
+
+import { Container } from "../../Container"
 
 export function Welcome() {
   return (

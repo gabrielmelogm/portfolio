@@ -2,11 +2,11 @@
 
 import styles from "./styles.module.sass"
 
-import { useEffect, useState } from "react";
-import { Container } from "../Container";
-import { Title } from "../Title";
+import { useState } from "react";
 import { HiOutlineFolder } from "react-icons/hi";
 import { BsGithub, BsLink45Deg } from "react-icons/bs";
+import { Container } from "../../Container";
+import { Title } from "../../Title";
 
 export interface RepositoriesProps {
   name: string

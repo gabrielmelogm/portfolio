@@ -1,13 +1,13 @@
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import { About } from "../components/About";
-import { Welcome } from "../components/Welcome";
+import { About } from "../components/layout/About";
+import { Email } from "../components/layout/Contact/Email";
+import { SocialMedias } from "../components/layout/Contact/SocialMedias";
+import { Experience } from "../components/layout/Experience";
+import { Projects } from "../components/layout/Projects";
+import { Repositories } from "../components/layout/Repositories";
+import { Welcome } from "../components/layout/Welcome";
 import { getRepositories } from "../services/repositories.service";
-import { SocialMedias } from "../components/Contact/SocialMedias";
-import { Email } from "../components/Contact/Email";
-import { Experience } from "../components/Experience";
-import { Projects } from "../components/Projects";
-import { Repositories } from "../components/Repositories";
 
 export default async function Home() {
   const repositories = await getRepositories()

@@ -1,9 +1,9 @@
 import styles from "./styles.module.sass"
 
-import { Container } from "../Container"
-import { Title } from "../Title"
 import { Project } from "./Project"
-import { getProjects } from "../../services/projects.service"
+import { Container } from "../../Container"
+import { getProjects } from "../../../services/projects.service"
+import { Title } from "../../Title"
 
 export async function Projects() {
   let lastElement: {

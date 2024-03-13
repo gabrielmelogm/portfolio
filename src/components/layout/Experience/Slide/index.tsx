@@ -1,12 +1,12 @@
 'use client'
 
-import styles from "../Experience/styles.module.sass"
+import styles from "../styles.module.sass"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination } from "swiper/modules"
-import { moment } from "../../utils/moment"
 import Image from "next/image"
-import { IExperiencesProps } from "../../services/experiences.service"
+import { IExperiencesProps } from "../../../../services/experiences.service"
+import { moment } from "../../../../utils/moment"
 
 interface ISlideProps {
   url: string

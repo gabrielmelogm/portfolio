@@ -1,11 +1,11 @@
-import Image from "next/image"
-import { Container } from "../Container"
-import { Title } from "../Title"
+import styles from "./styles.module.sass"
+
 import { SiJavascript, SiReact, SiTypescript } from "react-icons/si"
 import { RiVuejsFill } from "react-icons/ri"
 import { GrNode, GrMysql } from "react-icons/gr"
 import { FaHtml5, FaCss3Alt, FaSass, FaPhp } from "react-icons/fa"
-import styles from "./styles.module.sass"
+import { Container } from "../../Container"
+import { Title } from "../../Title"
 
 export function About() {
   const technologies = [
