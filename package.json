@@ -23,6 +23,7 @@
     "react-hook-form": "^7.43.0",
     "react-icons": "^4.7.1",
     "react-simple-wysiwyg": "^2.1.4",
+    "sharp": "^0.33.2",
     "swiper": "^11.0.7"
   },
   "devDependencies": {
