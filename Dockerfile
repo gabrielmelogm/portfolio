@@ -27,6 +27,7 @@ FROM node:20.11.1-alpine
 WORKDIR /app
 
 COPY --from=build /app/package.json ./
+COPY --from=build /app/next.config.js ./
 COPY --from=build /app/.env ./.env.production
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/public ./public
