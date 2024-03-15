@@ -15,7 +15,7 @@ export function Welcome() {
             <Image src={Emoji} alt="Emoji de oi" width={55} height={55} />
           </span>
         </div>
-        <h3 className={styles.subTitle}>Sou desenvolvedor full stack.</h3>
+        <h2 className={styles.subTitle}>Sou desenvolvedor full stack.</h2>
         <p className={styles.description}>
           Sou um <strong>jovem desenvolvedor curioso e movido por desafios</strong>, gosto de trabalhar com tecnologias diferentes e desvendar os mais complexos paradigmas até <strong>secar a minha garrafa de café</strong>.
         </p>
