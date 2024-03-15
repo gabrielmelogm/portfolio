@@ -50,10 +50,10 @@ export function Project({project, align}: ProjectProps) {
         </div>
         <Stacks stacks={project.attributes.stacks} align={align} />
         <div className={`${styles.projeto__link} ${(align === "left") && styles.link__left}`}>
-          <a className={styles.projeto__site} href={project.attributes.link} aria-label={`Link para ir para o site do projeto ${project.attributes.title}`} target="_blank" rel="noreferrer">
+          <a className={styles.projeto__site} href={project.attributes.link} aria-label={`Link para ir para o site do projeto ${project.attributes.title}`} target="_blank" rel="noreferrer" hidden={!project.attributes.link}>
             <BsLink45Deg />
           </a>
-          <a className={styles.projeto__repositorio} href={project.attributes.repositoryUrl} aria-label={`Link para ir para o repositório do projeto ${project.attributes.title}`} target="_blank" rel="noreferrer">
+          <a className={styles.projeto__repositorio} href={project.attributes.repositoryUrl} aria-label={`Link para ir para o repositório do projeto ${project.attributes.title}`} target="_blank" rel="noreferrer" hidden={!project.attributes.repositoryUrl}>
             <BsGithub />
           </a>
         </div>

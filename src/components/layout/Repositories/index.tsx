@@ -44,11 +44,11 @@ export function Repositories({ repositories }) {
                     <div className={styles.projeto__header}>
                       <span className={styles.projeto__icon}><HiOutlineFolder /></span>
                       <div className={styles.projeto__link}>
-                        <a className={styles.projeto__repositorio} href={repository.html_url} target="_blank" rel="noreferrer">
+                        <a className={styles.projeto__repositorio} href={repository.html_url} target="_blank" rel="noreferrer" aria-label={`Link para ir para o repositório do projeto ${repository.name}`} hidden={!repository.html_url}>
                           <BsGithub />
                         </a>
                         <a className={`${homepage ? styles.projeto__site : styles.site__disabled}`}
-                        href={homepage.includes("https") ? `${homepage}` : `https://${homepage}`} target="_blank" rel="noreferrer">
+                        href={homepage.includes("https") ? `${homepage}` : `https://${homepage}`} target="_blank" rel="noreferrer" aria-label={`Link para ir para o site do projeto ${repository.name}`} hidden={!repository.homepage}>
                           <BsLink45Deg />
                         </a>
                       </div>
